@@ -40,6 +40,24 @@ class PlayerNode: SKSpriteNode{
 		}
 	}
 	
+	func moveLeftImpulse(){
+		if canMove{
+			canMove = false
+			self.physicsBody?.applyImpulse(CGVector(dx: -1 * GameControl.gameControl.movementImpulse, dy: 0))
+			
+			self.run(
+				SKAction.sequence(
+					[
+						SKAction.wait(forDuration: GameControl.gameControl.movementTime),
+						SKAction.run({
+							self.canMove = true
+						})
+					]
+				)
+			)
+		}
+	}
+	
 	func moveRight(){
 		if canMove{
 			canMove = false

@@ -65,9 +65,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(n)
         }
 		let diff: CGPoint = pos - initialLocation
-		print(diff)
+//		print(diff)
 		if diff.x < -5 {
-			newPlayer.moveLeft()
+//			newPlayer.moveLeft()
+			newPlayer.moveLeftImpulse()
 		}else if diff.x > 5{
 			newPlayer.moveRight()
 		}
