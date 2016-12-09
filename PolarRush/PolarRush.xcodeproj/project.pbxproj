@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A078B21A1DFB545C00E2BA06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2191DFB545C00E2BA06 /* AppDelegate.swift */; };
+		A078B21C1DFB545C00E2BA06 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A078B21B1DFB545C00E2BA06 /* GameScene.sks */; };
+		A078B21E1DFB545C00E2BA06 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A078B21D1DFB545C00E2BA06 /* Actions.sks */; };
+		A078B2201DFB545C00E2BA06 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A078B21F1DFB545C00E2BA06 /* Game.xcassets */; };
+		A078B2221DFB545C00E2BA06 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2211DFB545C00E2BA06 /* GameScene.swift */; };
+		A078B2241DFB545C00E2BA06 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2231DFB545C00E2BA06 /* GameViewController.swift */; };
+		A078B2271DFB545C00E2BA06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A078B2251DFB545C00E2BA06 /* Main.storyboard */; };
+		A078B2291DFB545C00E2BA06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A078B2281DFB545C00E2BA06 /* Assets.xcassets */; };
+		A078B2341DFB545D00E2BA06 /* PolarRushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2331DFB545D00E2BA06 /* PolarRushTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A078B2301DFB545D00E2BA06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A078B20E1DFB545C00E2BA06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A078B2151DFB545C00E2BA06;
+			remoteInfo = PolarRush;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A078B2161DFB545C00E2BA06 /* PolarRush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolarRush.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A078B2191DFB545C00E2BA06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A078B21B1DFB545C00E2BA06 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		A078B21D1DFB545C00E2BA06 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		A078B21F1DFB545C00E2BA06 /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
+		A078B2211DFB545C00E2BA06 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		A078B2231DFB545C00E2BA06 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		A078B2261DFB545C00E2BA06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A078B2281DFB545C00E2BA06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A078B22A1DFB545C00E2BA06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A078B22F1DFB545D00E2BA06 /* PolarRushTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolarRushTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A078B2331DFB545D00E2BA06 /* PolarRushTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolarRushTests.swift; sourceTree = "<group>"; };
+		A078B2351DFB545D00E2BA06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A078B2131DFB545C00E2BA06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A078B22C1DFB545D00E2BA06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A078B20D1DFB545C00E2BA06 = {
+			isa = PBXGroup;
+			children = (
+				A078B2181DFB545C00E2BA06 /* PolarRush */,
+				A078B2321DFB545D00E2BA06 /* PolarRushTests */,
+				A078B2171DFB545C00E2BA06 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A078B2171DFB545C00E2BA06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A078B2161DFB545C00E2BA06 /* PolarRush.app */,
+				A078B22F1DFB545D00E2BA06 /* PolarRushTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A078B2181DFB545C00E2BA06 /* PolarRush */ = {
+			isa = PBXGroup;
+			children = (
+				A078B2191DFB545C00E2BA06 /* AppDelegate.swift */,
+				A078B21B1DFB545C00E2BA06 /* GameScene.sks */,
+				A078B21D1DFB545C00E2BA06 /* Actions.sks */,
+				A078B21F1DFB545C00E2BA06 /* Game.xcassets */,
+				A078B2211DFB545C00E2BA06 /* GameScene.swift */,
+				A078B2231DFB545C00E2BA06 /* GameViewController.swift */,
+				A078B2251DFB545C00E2BA06 /* Main.storyboard */,
+				A078B2281DFB545C00E2BA06 /* Assets.xcassets */,
+				A078B22A1DFB545C00E2BA06 /* Info.plist */,
+			);
+			path = PolarRush;
+			sourceTree = "<group>";
+		};
+		A078B2321DFB545D00E2BA06 /* PolarRushTests */ = {
+			isa = PBXGroup;
+			children = (
+				A078B2331DFB545D00E2BA06 /* PolarRushTests.swift */,
+				A078B2351DFB545D00E2BA06 /* Info.plist */,
+			);
+			path = PolarRushTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A078B2151DFB545C00E2BA06 /* PolarRush */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A078B2381DFB545D00E2BA06 /* Build configuration list for PBXNativeTarget "PolarRush" */;
+			buildPhases = (
+				A078B2121DFB545C00E2BA06 /* Sources */,
+				A078B2131DFB545C00E2BA06 /* Frameworks */,
+				A078B2141DFB545C00E2BA06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PolarRush;
+			productName = PolarRush;
+			productReference = A078B2161DFB545C00E2BA06 /* PolarRush.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A078B22E1DFB545D00E2BA06 /* PolarRushTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A078B23B1DFB545D00E2BA06 /* Build configuration list for PBXNativeTarget "PolarRushTests" */;
+			buildPhases = (
+				A078B22B1DFB545D00E2BA06 /* Sources */,
+				A078B22C1DFB545D00E2BA06 /* Frameworks */,
+				A078B22D1DFB545D00E2BA06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A078B2311DFB545D00E2BA06 /* PBXTargetDependency */,
+			);
+			name = PolarRushTests;
+			productName = PolarRushTests;
+			productReference = A078B22F1DFB545D00E2BA06 /* PolarRushTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A078B20E1DFB545C00E2BA06 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Sravan Karuturi";
+				TargetAttributes = {
+					A078B2151DFB545C00E2BA06 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 8Y28UR94RA;
+						ProvisioningStyle = Automatic;
+					};
+					A078B22E1DFB545D00E2BA06 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 8Y28UR94RA;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A078B2151DFB545C00E2BA06;
+					};
+				};
+			};
+			buildConfigurationList = A078B2111DFB545C00E2BA06 /* Build configuration list for PBXProject "PolarRush" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A078B20D1DFB545C00E2BA06;
+			productRefGroup = A078B2171DFB545C00E2BA06 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A078B2151DFB545C00E2BA06 /* PolarRush */,
+				A078B22E1DFB545D00E2BA06 /* PolarRushTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A078B2141DFB545C00E2BA06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A078B21C1DFB545C00E2BA06 /* GameScene.sks in Resources */,
+				A078B21E1DFB545C00E2BA06 /* Actions.sks in Resources */,
+				A078B2201DFB545C00E2BA06 /* Game.xcassets in Resources */,
+				A078B2271DFB545C00E2BA06 /* Main.storyboard in Resources */,
+				A078B2291DFB545C00E2BA06 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A078B22D1DFB545D00E2BA06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A078B2121DFB545C00E2BA06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A078B2221DFB545C00E2BA06 /* GameScene.swift in Sources */,
+				A078B2241DFB545C00E2BA06 /* GameViewController.swift in Sources */,
+				A078B21A1DFB545C00E2BA06 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A078B22B1DFB545D00E2BA06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A078B2341DFB545D00E2BA06 /* PolarRushTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A078B2311DFB545D00E2BA06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A078B2151DFB545C00E2BA06 /* PolarRush */;
+			targetProxy = A078B2301DFB545D00E2BA06 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A078B2251DFB545C00E2BA06 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A078B2261DFB545C00E2BA06 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A078B2361DFB545D00E2BA06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		A078B2371DFB545D00E2BA06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A078B2391DFB545D00E2BA06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 8Y28UR94RA;
+				INFOPLIST_FILE = PolarRush/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sample.PolarRush;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A078B23A1DFB545D00E2BA06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 8Y28UR94RA;
+				INFOPLIST_FILE = PolarRush/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sample.PolarRush;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		A078B23C1DFB545D00E2BA06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8Y28UR94RA;
+				INFOPLIST_FILE = PolarRushTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sample.PolarRushTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PolarRush.app/PolarRush";
+			};
+			name = Debug;
+		};
+		A078B23D1DFB545D00E2BA06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8Y28UR94RA;
+				INFOPLIST_FILE = PolarRushTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sample.PolarRushTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PolarRush.app/PolarRush";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A078B2111DFB545C00E2BA06 /* Build configuration list for PBXProject "PolarRush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A078B2361DFB545D00E2BA06 /* Debug */,
+				A078B2371DFB545D00E2BA06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A078B2381DFB545D00E2BA06 /* Build configuration list for PBXNativeTarget "PolarRush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A078B2391DFB545D00E2BA06 /* Debug */,
+				A078B23A1DFB545D00E2BA06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A078B23B1DFB545D00E2BA06 /* Build configuration list for PBXNativeTarget "PolarRushTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A078B23C1DFB545D00E2BA06 /* Debug */,
+				A078B23D1DFB545D00E2BA06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A078B20E1DFB545C00E2BA06 /* Project object */;
+}
