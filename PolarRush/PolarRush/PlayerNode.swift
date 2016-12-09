@@ -20,7 +20,7 @@ class PlayerNode: SKSpriteNode{
 		super.init(texture: newTexture, color: UIColor.red, size: GameControl.gameControl.blockSize)
 		self.physicsBody = SKPhysicsBody(texture: newTexture, size: GameControl.gameControl.blockSize)
 		self.physicsBody?.categoryBitMask = PhysicsCategory.playerCategory
-		self.physicsBody?.contactTestBitMask = PhysicsCategory.platformCategory
+		self.physicsBody?.contactTestBitMask = PhysicsCategory.platformCategory | PhysicsCategory.giftBoxCategory
 		self.physicsBody?.allowsRotation = false
 	}
 	
@@ -44,6 +44,27 @@ class PlayerNode: SKSpriteNode{
 		if canMove{
 			canMove = false
 			self.physicsBody?.applyImpulse(CGVector(dx: -1 * GameControl.gameControl.movementImpulse, dy: 0))
+			
+			self.run(
+				SKAction.sequence(
+					[
+						SKAction.group([
+							SKAction.wait(forDuration: GameControl.gameControl.movementTime),
+//							SKAction.rotate(byAngle: .pi, duration: 0.1)
+							]),
+						SKAction.run({
+							self.canMove = true
+						})
+					]
+				)
+			)
+		}
+	}
+	
+	func moveRightImpulse(){
+		if canMove{
+			canMove = false
+			self.physicsBody?.applyImpulse(CGVector(dx: GameControl.gameControl.movementImpulse, dy: 0))
 			
 			self.run(
 				SKAction.sequence(

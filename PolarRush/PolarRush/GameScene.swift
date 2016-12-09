@@ -15,18 +15,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var spinnyNode : SKShapeNode?
 	
 	private var newPlayer = PlayerNode()
+	private var newbox = GiftBox()
 	
 	// MARK: Movement variables:
 	private var initialLocation: CGPoint = CGPoint.zero
 	private var finalLocation: CGPoint = CGPoint.zero
 	private var originalLocation: CGPoint = CGPoint.zero
+	
     
     override func didMove(to view: SKView) {
 		
 		self.physicsWorld.contactDelegate = self
 		
+//		newPlayer.position = CGPoint(x: 100, y: 100)
 		self.addChild(newPlayer)
 		addGestureRecs()
+		
+		newbox.position = CGPoint(x: 3 * (self.view?.frame.size.width)!/8, y: 3 * (self.view?.frame.size.height)!/8)
+		newbox.zPosition = 5
+		self.addChild(newbox)
+		
+		
+		
         
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
@@ -70,7 +80,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //			newPlayer.moveLeft()
 			newPlayer.moveLeftImpulse()
 		}else if diff.x > 5{
-			newPlayer.moveRight()
+			newPlayer.moveRightImpulse()
 		}
 		
 		if diff.y > 10{
@@ -127,8 +137,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	}
 	
 	func didBegin(_ contact: SKPhysicsContact) {
-		if ( contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask ) == ( PhysicsCategory.playerCategory | PhysicsCategory.platformCategory ){
+		
+		let check = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+		
+		if check == ( PhysicsCategory.playerCategory | PhysicsCategory.platformCategory ){
 			newPlayer.canJump = true
+		}else if check == PhysicsCategory.giftBoxCategory | PhysicsCategory.playerCategory{
+			newbox.removeGiftBox()
 		}
 	}
 }

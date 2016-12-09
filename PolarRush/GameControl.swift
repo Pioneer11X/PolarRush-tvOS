@@ -30,5 +30,6 @@ struct PhysicsCategory{
 	
 	static let playerCategory = UInt32(1)
 	static let platformCategory = UInt32(2)
+	static let giftBoxCategory = UInt32(4)
 	
 }
