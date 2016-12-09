@@ -9,12 +9,24 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+	
+	private var newPlayer = PlayerNode()
+	
+	// MARK: Movement variables:
+	private var initialLocation: CGPoint = CGPoint.zero
+	private var finalLocation: CGPoint = CGPoint.zero
+	private var originalLocation: CGPoint = CGPoint.zero
     
     override func didMove(to view: SKView) {
+		
+		self.physicsWorld.contactDelegate = self
+		
+		self.addChild(newPlayer)
+		addGestureRecs()
         
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
@@ -52,6 +64,18 @@ class GameScene: SKScene {
             n.strokeColor = SKColor.blue
             self.addChild(n)
         }
+		let diff: CGPoint = pos - initialLocation
+		print(diff)
+		if diff.x < -5 {
+			newPlayer.moveLeft()
+		}else if diff.x > 5{
+			newPlayer.moveRight()
+		}
+		
+		if diff.y > 10{
+			newPlayer.jump()
+		}
+		initialLocation = pos
     }
     
     func touchUp(atPoint pos : CGPoint) {
@@ -60,6 +84,7 @@ class GameScene: SKScene {
             n.strokeColor = SKColor.red
             self.addChild(n)
         }
+		initialLocation = CGPoint.zero
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -86,4 +111,23 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
+	
+	func check(_ recognizer: UITapGestureRecognizer){
+		self.newPlayer.jump()
+	}
+	
+	func addGestureRecs(){
+		
+		let newRec = UITapGestureRecognizer(target: self, action: #selector(check(_ :)))
+//		newRec.allowedPressTypes = [ NSNumber(value: UIPressType.leftArrow.rawValue ) ]
+		newRec.allowedPressTypes = [ NSNumber(value: UIPressType.select.rawValue ) ]
+		self.view?.addGestureRecognizer(newRec)
+		
+	}
+	
+	func didBegin(_ contact: SKPhysicsContact) {
+		if ( contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask ) == ( PhysicsCategory.playerCategory | PhysicsCategory.platformCategory ){
+			newPlayer.canJump = true
+		}
+	}
 }
