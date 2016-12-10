@@ -45,12 +45,14 @@ class PlayerNode: SKSpriteNode{
 			canMove = false
 			self.physicsBody?.applyImpulse(CGVector(dx: -1 * GameControl.gameControl.movementImpulse, dy: 0))
 			
+			let newTexture = SKTexture(imageNamed: "myElfLeft")
+//			let newTexture = SKTexture(
 			self.run(
 				SKAction.sequence(
 					[
 						SKAction.group([
 							SKAction.wait(forDuration: GameControl.gameControl.movementTime),
-//							SKAction.rotate(byAngle: .pi, duration: 0.1)
+							SKAction.setTexture(newTexture)
 							]),
 						SKAction.run({
 							self.canMove = true
@@ -65,11 +67,15 @@ class PlayerNode: SKSpriteNode{
 		if canMove{
 			canMove = false
 			self.physicsBody?.applyImpulse(CGVector(dx: GameControl.gameControl.movementImpulse, dy: 0))
-			
+			let newTexture = SKTexture(imageNamed: "myElf")
 			self.run(
 				SKAction.sequence(
 					[
-						SKAction.wait(forDuration: GameControl.gameControl.movementTime),
+						SKAction.group([
+							SKAction.setTexture(newTexture),
+							SKAction.wait(forDuration: GameControl.gameControl.movementTime)
+						]
+						),
 						SKAction.run({
 							self.canMove = true
 						})
