@@ -17,6 +17,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	private var newPlayer = PlayerNode()
 	private var newbox = GiftBox()
 	
+	private var isGamePaused: Bool = false{
+		didSet(isGamePausedNew){
+			if isGamePausedNew{
+				self.view?.isPaused = true
+			}else{
+				self.view?.isPaused = false
+			}
+		}
+	}
+	
 	// MARK: Movement variables:
 	private var initialLocation: CGPoint = CGPoint.zero
 	private var finalLocation: CGPoint = CGPoint.zero
@@ -127,12 +137,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		self.newPlayer.jump()
 	}
 	
+	func pauseCheck( _ recognizer: UITapGestureRecognizer){
+		isGamePaused = !isGamePaused
+		addPauseOverlay()
+	}
+	
+	func addPauseOverlay(){
+		// TODO: Add Pause Overlay.
+	}
+	
 	func addGestureRecs(){
 		
 		let newRec = UITapGestureRecognizer(target: self, action: #selector(check(_ :)))
-//		newRec.allowedPressTypes = [ NSNumber(value: UIPressType.leftArrow.rawValue ) ]
 		newRec.allowedPressTypes = [ NSNumber(value: UIPressType.select.rawValue ) ]
 		self.view?.addGestureRecognizer(newRec)
+		
+		let pauseRec = UITapGestureRecognizer(target: self, action: #selector(pauseCheck(_:)))
+		pauseRec.allowedPressTypes = [ NSNumber(value: UIPressType.playPause.rawValue) ]
+		self.view?.addGestureRecognizer(pauseRec)
 		
 	}
 	
