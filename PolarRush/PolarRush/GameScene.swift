@@ -35,7 +35,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
 		
+		
 		self.physicsWorld.contactDelegate = self
+		print(SKTGameController.sharedInstance.gameController.extendedGamepad?.buttonX.isPressed)
+		print(SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.left.isPressed)
 		
 //		newPlayer.position = CGPoint(x: 100, y: 100)
 		self.addChild(newPlayer)
@@ -131,6 +134,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+//		print(SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.left.isPressed)
+		
+		if SKTGameController.sharedInstance.gameControllerConnected{
+			
+			if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.left.isPressed)!{
+				newPlayer.moveLeft()
+			}
+			if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.right.isPressed)!{
+				newPlayer.moveRight()
+			}
+			if (SKTGameController.sharedInstance.gameController.extendedGamepad?.buttonA.isPressed)!{
+				newPlayer.jump()
+			}
+			
+		}
+		
     }
 	
 	func check(_ recognizer: UITapGestureRecognizer){

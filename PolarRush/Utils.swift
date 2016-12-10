@@ -12,3 +12,17 @@ import SpriteKit
 func - (left: CGPoint, right: CGPoint) -> CGPoint{
 	return CGPoint(x: left.x - right.x, y: left.y - right.y)
 }
+
+func + ( left: CGPoint, right: CGPoint) -> CGPoint{
+	return CGPoint(x: left.x + right.x, y: left.y + right.y)
+}
+
+func * ( left: Double, right: CGPoint) -> CGPoint {
+	let new = CGFloat(left)
+	return CGPoint(x: new * right.x, y: new * right.y )
+}
+
+func * ( left: CGPoint, right: Double) -> CGPoint {
+	let new = CGFloat(right)
+	return CGPoint(x: new * left.x, y: new * left.y )
+}
