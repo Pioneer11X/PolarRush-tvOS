@@ -22,6 +22,7 @@ class PlayerNode: SKSpriteNode{
 		self.physicsBody?.categoryBitMask = PhysicsCategory.playerCategory
 		self.physicsBody?.contactTestBitMask = PhysicsCategory.platformCategory | PhysicsCategory.giftBoxCategory
 		self.physicsBody?.allowsRotation = false
+		self.physicsBody?.mass = GameControl.gameControl.playerMass
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

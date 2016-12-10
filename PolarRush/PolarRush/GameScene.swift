@@ -37,8 +37,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		
 		
 		self.physicsWorld.contactDelegate = self
-		print(SKTGameController.sharedInstance.gameController.extendedGamepad?.buttonX.isPressed)
-		print(SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.left.isPressed)
 		
 //		newPlayer.position = CGPoint(x: 100, y: 100)
 		self.addChild(newPlayer)
@@ -138,16 +136,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		
 		if SKTGameController.sharedInstance.gameControllerConnected{
 			
-			if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.left.isPressed)!{
-				newPlayer.moveLeft()
-			}
-			if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.right.isPressed)!{
-				newPlayer.moveRight()
-			}
-			if (SKTGameController.sharedInstance.gameController.extendedGamepad?.buttonA.isPressed)!{
-				newPlayer.jump()
-			}
+			if SKTGameController.sharedInstance.gameControllerType == controllerType.extended{
 			
+				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.left.isPressed)!{
+					newPlayer.moveLeftImpulse()
+				}
+				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.right.isPressed)!{
+					newPlayer.moveRightImpulse()
+				}
+				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.buttonA.isPressed)!{
+					newPlayer.jump()
+				}
+			}
 		}
 		
     }

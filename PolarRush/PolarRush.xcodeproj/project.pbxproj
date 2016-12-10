@@ -23,6 +23,10 @@
 		A078B24A1DFB62CA00E2BA06 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2491DFB62CA00E2BA06 /* Utils.swift */; };
 		A078B24D1DFB73D100E2BA06 /* GiftBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B24C1DFB73D100E2BA06 /* GiftBox.swift */; };
 		A078B24F1DFBADE500E2BA06 /* SKTGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B24E1DFBADE500E2BA06 /* SKTGameController.swift */; };
+		A078B2511DFC7FFE00E2BA06 /* levelScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A078B2501DFC7FFE00E2BA06 /* levelScene.sks */; };
+		A078B2531DFC800C00E2BA06 /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2521DFC800C00E2BA06 /* LevelScene.swift */; };
+		A078B2561DFC81AF00E2BA06 /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = A078B2551DFC81AF00E2BA06 /* Level1.sks */; };
+		A078B2581DFC81BC00E2BA06 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2571DFC81BC00E2BA06 /* Level1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,10 @@
 		A078B2491DFB62CA00E2BA06 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A078B24C1DFB73D100E2BA06 /* GiftBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftBox.swift; sourceTree = "<group>"; };
 		A078B24E1DFBADE500E2BA06 /* SKTGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTGameController.swift; sourceTree = "<group>"; };
+		A078B2501DFC7FFE00E2BA06 /* levelScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = levelScene.sks; sourceTree = "<group>"; };
+		A078B2521DFC800C00E2BA06 /* LevelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
+		A078B2551DFC81AF00E2BA06 /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
+		A078B2571DFC81BC00E2BA06 /* Level1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,7 @@
 			children = (
 				A078B2421DFB550700E2BA06 /* MenuScene */,
 				A078B2461DFB568000E2BA06 /* LevelScene */,
+				A078B2541DFC819700E2BA06 /* Level1 */,
 				A078B2191DFB545C00E2BA06 /* AppDelegate.swift */,
 				A078B21B1DFB545C00E2BA06 /* GameScene.sks */,
 				A078B21D1DFB545C00E2BA06 /* Actions.sks */,
@@ -145,6 +154,8 @@
 		A078B2461DFB568000E2BA06 /* LevelScene */ = {
 			isa = PBXGroup;
 			children = (
+				A078B2501DFC7FFE00E2BA06 /* levelScene.sks */,
+				A078B2521DFC800C00E2BA06 /* LevelScene.swift */,
 			);
 			name = LevelScene;
 			sourceTree = "<group>";
@@ -156,6 +167,15 @@
 				A078B24C1DFB73D100E2BA06 /* GiftBox.swift */,
 			);
 			name = NodeClasses;
+			sourceTree = "<group>";
+		};
+		A078B2541DFC819700E2BA06 /* Level1 */ = {
+			isa = PBXGroup;
+			children = (
+				A078B2551DFC81AF00E2BA06 /* Level1.sks */,
+				A078B2571DFC81BC00E2BA06 /* Level1.swift */,
+			);
+			name = Level1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,7 +265,9 @@
 			files = (
 				A078B21C1DFB545C00E2BA06 /* GameScene.sks in Resources */,
 				A078B2411DFB550000E2BA06 /* MenuScene.sks in Resources */,
+				A078B2561DFC81AF00E2BA06 /* Level1.sks in Resources */,
 				A078B21E1DFB545C00E2BA06 /* Actions.sks in Resources */,
+				A078B2511DFC7FFE00E2BA06 /* levelScene.sks in Resources */,
 				A078B2201DFB545C00E2BA06 /* Game.xcassets in Resources */,
 				A078B2271DFB545C00E2BA06 /* Main.storyboard in Resources */,
 				A078B2291DFB545C00E2BA06 /* Assets.xcassets in Resources */,
@@ -268,6 +290,7 @@
 			files = (
 				A078B2481DFB56A400E2BA06 /* PlayerNode.swift in Sources */,
 				A078B2221DFB545C00E2BA06 /* GameScene.swift in Sources */,
+				A078B2581DFC81BC00E2BA06 /* Level1.swift in Sources */,
 				A078B2401DFB550000E2BA06 /* MenuScene.swift in Sources */,
 				A078B24D1DFB73D100E2BA06 /* GiftBox.swift in Sources */,
 				A078B24A1DFB62CA00E2BA06 /* Utils.swift in Sources */,
@@ -275,6 +298,7 @@
 				A078B2451DFB556300E2BA06 /* GameControl.swift in Sources */,
 				A078B24F1DFBADE500E2BA06 /* SKTGameController.swift in Sources */,
 				A078B21A1DFB545C00E2BA06 /* AppDelegate.swift in Sources */,
+				A078B2531DFC800C00E2BA06 /* LevelScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
