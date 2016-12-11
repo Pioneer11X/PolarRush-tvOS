@@ -28,8 +28,8 @@ class Level1: PolarRushScene{
 		if SKTGameController.sharedInstance.gameControllerType == controllerType.extended{
 			// MARK: Using an external controller. Use different instructions.
 		}else{
-			let instructions = ["Swipe in any direction to move."]
-			self.printOnScreen(data: instructions, timeDelay: 0.1)
+			let instructions = ["Swipe in any direction to move.", "Reach the spiral to advance"]
+			self.printOnScreen(data: instructions, timeDelay: 3)
 		}
 		
 	}
@@ -37,15 +37,35 @@ class Level1: PolarRushScene{
 	func printOnScreen( data: [String], timeDelay: Double ){
 		// MARK: Use this function to display all sorts of text on screen. We can make it part of the super class.
 		
+		var i = 0.0
+		var newLabelNode = SKLabelNode(fontNamed: "Arial")
+		
 		for ins in data{
 			
 			// TODO: Change the font
-			let newLabelNode = SKLabelNode(fontNamed: "Arial")
 			newLabelNode.text = ins
 			newLabelNode.position = CGPoint(x: 0, y: (self.view?.frame.size.height)!/4)
 			newLabelNode.zPosition = 4
-			self.addChild(newLabelNode)
+			newLabelNode.name = "newLabel"
 			
+			// MARK: THe displaying part.
+			
+			// TODO: Use timers.
+			newLabelNode.run(
+				SKAction.sequence(
+					[
+						SKAction.wait(forDuration: timeDelay * i),
+						SKAction.run({self.addChild(newLabelNode)}),
+						SKAction.wait(forDuration: GameControl.gameControl.displayTime),
+						SKAction.fadeOut(withDuration: GameControl.gameControl.fadeOutTime),
+						SKAction.run({
+							newLabelNode.removeFromParent()
+						})
+					]
+				)
+			)
+			
+			i += 1.0
 			
 		}
 		

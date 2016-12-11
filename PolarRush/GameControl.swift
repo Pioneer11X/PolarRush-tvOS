@@ -19,6 +19,11 @@ class GameControl{
 	let movementImpulse: CGFloat = 20
 	let playerMass : CGFloat = 0.05
 	
+	// MARK: Display Constant
+	
+	let displayTime: Double = 1
+	let fadeOutTime = 0.5
+	
 	private init(){
 		
 	}
@@ -28,6 +33,14 @@ class GameControl{
 }
 
 struct PhysicsCategory{
+	
+	static let playerCategory = UInt32(1)
+	static let platformCategory = UInt32(2)
+	static let giftBoxCategory = UInt32(0)
+	
+}
+
+struct CollisionCategory{
 	
 	static let playerCategory = UInt32(1)
 	static let platformCategory = UInt32(2)

@@ -21,6 +21,8 @@ class GiftBox: SKSpriteNode{
 		
 		self.physicsBody?.categoryBitMask = PhysicsCategory.giftBoxCategory
 		self.physicsBody?.contactTestBitMask = PhysicsCategory.playerCategory
+		self.physicsBody?.collisionBitMask = CollisionCategory.giftBoxCategory
+		self.physicsBody?.affectedByGravity = false
 		
 	}
 	
