@@ -27,6 +27,7 @@
 		A078B2531DFC800C00E2BA06 /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2521DFC800C00E2BA06 /* LevelScene.swift */; };
 		A078B2561DFC81AF00E2BA06 /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = A078B2551DFC81AF00E2BA06 /* Level1.sks */; };
 		A078B2581DFC81BC00E2BA06 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2571DFC81BC00E2BA06 /* Level1.swift */; };
+		A078B25A1DFCD46400E2BA06 /* PolarRushScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2591DFCD46400E2BA06 /* PolarRushScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		A078B2521DFC800C00E2BA06 /* LevelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
 		A078B2551DFC81AF00E2BA06 /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
 		A078B2571DFC81BC00E2BA06 /* Level1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
+		A078B2591DFCD46400E2BA06 /* PolarRushScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolarRushScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				A078B2251DFB545C00E2BA06 /* Main.storyboard */,
 				A078B2281DFB545C00E2BA06 /* Assets.xcassets */,
 				A078B22A1DFB545C00E2BA06 /* Info.plist */,
+				A078B2591DFCD46400E2BA06 /* PolarRushScene.swift */,
 			);
 			path = PolarRush;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				A078B2241DFB545C00E2BA06 /* GameViewController.swift in Sources */,
 				A078B2451DFB556300E2BA06 /* GameControl.swift in Sources */,
 				A078B24F1DFBADE500E2BA06 /* SKTGameController.swift in Sources */,
+				A078B25A1DFCD46400E2BA06 /* PolarRushScene.swift in Sources */,
 				A078B21A1DFB545C00E2BA06 /* AppDelegate.swift in Sources */,
 				A078B2531DFC800C00E2BA06 /* LevelScene.swift in Sources */,
 			);

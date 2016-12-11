@@ -104,6 +104,7 @@ class MenuScene: SKScene{
 			print("NewGame Selected")
 			GameControl.gameControl.gameViewController?.loadGameScene()
 		case 1:
+			GameControl.gameControl.gameViewController?.loadLevel1()
 			print("Instructions Selected")
 		case 2:
 			print("Options Selected")
