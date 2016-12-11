@@ -21,6 +21,8 @@ class Level1: PolarRushScene{
 		
 	}
 	
+	
+	
 	func displayInstructions(){
 		
 		// TODO: We can make it part of the SuperClass, PolarRUsh and override it with new instructionset everylevel.
@@ -35,40 +37,54 @@ class Level1: PolarRushScene{
 	}
 	
 	func printOnScreen( data: [String], timeDelay: Double ){
+		
 		// MARK: Use this function to display all sorts of text on screen. We can make it part of the super class.
 		
-		var i = 0.0
+		
+		
+		var i = 0
+			
+		for i in 0..<data.count-1{
+			let _ = Timer.scheduledTimer(timeInterval: timeDelay, target: self, selector: Selector("printIns(text: data[i])"), userInfo: data[i], repeats: false)
+		}
+	}
+}
+
+extension Level1{
+	
+	@objc func printIns( text: String ){
+		
+		// TODO: Change the font here.
 		var newLabelNode = SKLabelNode(fontNamed: "Arial")
 		
-		for ins in data{
-			
-			// TODO: Change the font
-			newLabelNode.text = ins
-			newLabelNode.position = CGPoint(x: 0, y: (self.view?.frame.size.height)!/4)
-			newLabelNode.zPosition = 4
-			newLabelNode.name = "newLabel"
-			
-			// MARK: THe displaying part.
-			
-			// TODO: Use timers.
-			newLabelNode.run(
-				SKAction.sequence(
-					[
-						SKAction.wait(forDuration: timeDelay * i),
-						SKAction.run({self.addChild(newLabelNode)}),
-						SKAction.wait(forDuration: GameControl.gameControl.displayTime),
-						SKAction.fadeOut(withDuration: GameControl.gameControl.fadeOutTime),
-						SKAction.run({
-							newLabelNode.removeFromParent()
-						})
-					]
-				)
-			)
-			
-			i += 1.0
-			
-		}
-		
+		newLabelNode.text = text
+		newLabelNode.position = CGPoint(x: 0, y: (self.view?.frame.size.height)!/4)
+		newLabelNode.zPosition = 4
+		newLabelNode.name = "newLabel"
+		newLabelNode.fontColor = UIColor.white
 	}
 	
 }
+
+
+// TODO: Use timers.
+//			newLabelNode.run(
+//				SKAction.sequence(
+//					[
+//						SKAction.wait(forDuration: timeDelay * i),
+//						SKAction.run({self.addChild(newLabelNode)}),
+//						SKAction.wait(forDuration: GameControl.gameControl.displayTime),
+//						SKAction.fadeOut(withDuration: GameControl.gameControl.fadeOutTime),
+//						SKAction.run({
+//							newLabelNode.removeFromParent()
+//						})
+//					]
+//				)
+//			)
+
+//				let _ = Timer.scheduledTimer(withTimeInterval: timeDelay * Double(i), repeats: false, block: {_ in
+//
+//						newLabelNode.removeFromParent()
+//						self.addChild(newLabelNode)
+//					})
+//				i += 1
