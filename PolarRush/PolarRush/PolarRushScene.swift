@@ -14,9 +14,10 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	private var newPlayer = PlayerNode()
 	private var newDoor = Door()
 	
+	// TODO: This is bugging out when the delay between pause and unpause is kind of less than 5 seconds.
 	var isGamePaused: Bool = false{
 		didSet(isGamePausedNew){
-			if isGamePausedNew{
+			if self.isGamePaused{
 				self.view?.isPaused = true
 			}else{
 				self.view?.isPaused = false
@@ -40,10 +41,17 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		
 		newDoor.position = CGPoint(x: (self.view?.frame.size.width)!/2, y: (self.view?.frame.size.height)!/2) - CGPoint(x: 100, y: 100)
 		newDoor.zPosition = 5
+		
+		
 		unlockDoor()
+		addGestureRecs()
+		
+		
 	}
 	
 	func unlockDoor(){
+		// MARK: This needs to be called when all the giftboxes on the level are collected.
+		// TODO: Add a function to check the giftboxes and call it in update.
 		self.addChild(newDoor)
 	}
 	
@@ -113,11 +121,17 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	
 	func pauseCheck( _ recognizer: UITapGestureRecognizer){
 		isGamePaused = !isGamePaused
-		addPauseOverlay()
+//		addPauseOverlay()
 	}
 	
 	func addPauseOverlay(){
 		// TODO: Add Pause Overlay.
+		if self.isGamePaused{
+			addNodes(scene: self.scene!)
+		}else{
+			removeNodes(scene: self.scene!)
+		}
+		
 	}
 	
 	func addGestureRecs(){
@@ -146,6 +160,11 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 				}
 				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.buttonA.isPressed)!{
 					newPlayer.jump()
+				}
+				
+				if ( SKTGameController.sharedInstance.gameController.extendedGamepad?.rightTrigger.isPressed )!{
+					isGamePaused = !isGamePaused
+					// TODO: Need to fix unpausing using the controller.
 				}
 			}
 		}

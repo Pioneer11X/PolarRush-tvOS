@@ -1,21 +1,21 @@
 //
-//  Level1.swift
+//  Level2.swift
 //  PolarRush
 //
-//  Created by Sravan Karuturi on 10/12/16.
+//  Created by Sravan Karuturi on 12/12/16.
 //  Copyright © 2016 Sravan Karuturi. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class Level1: PolarRushScene{
+class Level2: PolarRushScene{
 	
 	override func didMove(to view: SKView) {
 		
 		super.didMove(to: self.view!)
-//		let newBox = GiftBox()
-//		self.addChild(newBox)
+		//		let newBox = GiftBox()
+		//		self.addChild(newBox)
 		
 		displayInstructions()
 		
@@ -31,26 +31,26 @@ class Level1: PolarRushScene{
 			// MARK: Using an external controller. Use different instructions.
 		}else{
 			let instructions = ["Swipe in any direction to move.", "Reach the spiral to advance"]
-//			self.printOnScreen(data: instructions, timeDelay: 3)
+			//			self.printOnScreen(data: instructions, timeDelay: 3)
 		}
 		
 	}
 	
-//	func printOnScreen( data: [String], timeDelay: Double ){
-//		
-//		// MARK: Use this function to display all sorts of text on screen. We can make it part of the super class.
-//		
-//		
-//		
-//		var i = 0
-//			
-//		for i in 0..<data.count-1{
-//			let _ = Timer.scheduledTimer(timeInterval: timeDelay, target: self, selector: Selector("printIns(text: data[i])"), userInfo: data[i], repeats: false)
-//		}
-//	}
+	//	func printOnScreen( data: [String], timeDelay: Double ){
+	//
+	//		// MARK: Use this function to display all sorts of text on screen. We can make it part of the super class.
+	//
+	//
+	//
+	//		var i = 0
+	//
+	//		for i in 0..<data.count-1{
+	//			let _ = Timer.scheduledTimer(timeInterval: timeDelay, target: self, selector: Selector("printIns(text: data[i])"), userInfo: data[i], repeats: false)
+	//		}
+	//	}
 }
 
-extension Level1{
+extension Level2{
 	
 	@objc func printIns( text: String ){
 		

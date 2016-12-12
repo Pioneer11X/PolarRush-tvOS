@@ -51,3 +51,14 @@ struct CollisionCategory{
 	static let giftBoxCategory = UInt32(4)
 	
 }
+
+struct zPosLayer{
+	
+	static let background: CGFloat = 0
+	static let platform: CGFloat = 5
+	static let giftbox: CGFloat = 10
+	static let player: CGFloat = 15
+	static let hud: CGFloat = 20
+	static let pauseMenu: CGFloat = 25
+	
+}

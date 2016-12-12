@@ -32,6 +32,7 @@
 		A0A2369A1DFF219500AE18AD /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A236991DFF219500AE18AD /* LevelManager.swift */; };
 		A0A2369D1DFF22A200AE18AD /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0A2369C1DFF22A200AE18AD /* Level2.sks */; };
 		A0A2369F1DFF23B800AE18AD /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A2369E1DFF23B800AE18AD /* Level2.swift */; };
+		A0A548D81DFF4F1700A57C02 /* PauseOverLaySingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A548D71DFF4F1700A57C02 /* PauseOverLaySingleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		A0A236991DFF219500AE18AD /* LevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		A0A2369C1DFF22A200AE18AD /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
 		A0A2369E1DFF23B800AE18AD /* Level2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level2.swift; sourceTree = "<group>"; };
+		A0A548D71DFF4F1700A57C02 /* PauseOverLaySingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseOverLaySingleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				A078B24E1DFBADE500E2BA06 /* SKTGameController.swift */,
 				A078B2441DFB556300E2BA06 /* GameControl.swift */,
 				A078B2491DFB62CA00E2BA06 /* Utils.swift */,
+				A0A548D71DFF4F1700A57C02 /* PauseOverLaySingleton.swift */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				A078B24D1DFB73D100E2BA06 /* GiftBox.swift in Sources */,
 				A078B24A1DFB62CA00E2BA06 /* Utils.swift in Sources */,
 				A078B2241DFB545C00E2BA06 /* GameViewController.swift in Sources */,
+				A0A548D81DFF4F1700A57C02 /* PauseOverLaySingleton.swift in Sources */,
 				A078B2451DFB556300E2BA06 /* GameControl.swift in Sources */,
 				A019263B1DFD39A900D2E691 /* Door.swift in Sources */,
 				A078B24F1DFBADE500E2BA06 /* SKTGameController.swift in Sources */,
