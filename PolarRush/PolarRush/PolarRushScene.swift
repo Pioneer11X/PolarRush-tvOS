@@ -12,6 +12,7 @@ import SpriteKit
 class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	
 	private var newPlayer = PlayerNode()
+	private var newDoor = Door()
 	
 	var isGamePaused: Bool = false{
 		didSet(isGamePausedNew){
@@ -32,13 +33,23 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		
 		self.physicsWorld.contactDelegate = self
 		self.addChild(newPlayer)
-		newPlayer.position = CGPoint(x: 100, y: 100)
+//		newPlayer.position = CGPoint(x: 100, y: 100)
+		newPlayer.position = CGPoint(x: 100, y: 100) + CGPoint(x: -1 * (self.view?.frame.size.width)!/2, y: -1 * (self.view?.frame.size.height)!/2)
 		newPlayer.zPosition = 5
 		
+		
+		newDoor.position = CGPoint(x: (self.view?.frame.size.width)!/2, y: (self.view?.frame.size.height)!/2) - CGPoint(x: 100, y: 100)
+		newDoor.zPosition = 5
+		unlockDoor()
+	}
+	
+	func unlockDoor(){
+		self.addChild(newDoor)
 	}
 	
 	override func update(_ currentTime: TimeInterval) {
 		controllerSupport()
+		checkDoorReached()
 	}
 	
 	func touchDown(atPoint pos : CGPoint) {
@@ -139,6 +150,19 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 			}
 		}
 
+	}
+	
+	func checkDoorReached(){
+		
+		if newDoor.contains(newPlayer.position){
+			if !newDoor.doorReached{
+				GameControl.gameControl.gameViewController?.loadLevel2()
+			}
+			// MARK: Door Reached.
+			newDoor.doorReached = true
+			
+		}
+		
 	}
 	
 }

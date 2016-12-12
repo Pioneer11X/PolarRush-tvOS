@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A019263B1DFD39A900D2E691 /* Door.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019263A1DFD39A900D2E691 /* Door.swift */; };
 		A078B21A1DFB545C00E2BA06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2191DFB545C00E2BA06 /* AppDelegate.swift */; };
 		A078B21C1DFB545C00E2BA06 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A078B21B1DFB545C00E2BA06 /* GameScene.sks */; };
 		A078B21E1DFB545C00E2BA06 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A078B21D1DFB545C00E2BA06 /* Actions.sks */; };
@@ -28,6 +29,9 @@
 		A078B2561DFC81AF00E2BA06 /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = A078B2551DFC81AF00E2BA06 /* Level1.sks */; };
 		A078B2581DFC81BC00E2BA06 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2571DFC81BC00E2BA06 /* Level1.swift */; };
 		A078B25A1DFCD46400E2BA06 /* PolarRushScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2591DFCD46400E2BA06 /* PolarRushScene.swift */; };
+		A0A2369A1DFF219500AE18AD /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A236991DFF219500AE18AD /* LevelManager.swift */; };
+		A0A2369D1DFF22A200AE18AD /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0A2369C1DFF22A200AE18AD /* Level2.sks */; };
+		A0A2369F1DFF23B800AE18AD /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A2369E1DFF23B800AE18AD /* Level2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A019263A1DFD39A900D2E691 /* Door.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Door.swift; sourceTree = "<group>"; };
 		A078B2161DFB545C00E2BA06 /* PolarRush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolarRush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A078B2191DFB545C00E2BA06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A078B21B1DFB545C00E2BA06 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -66,6 +71,9 @@
 		A078B2551DFC81AF00E2BA06 /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
 		A078B2571DFC81BC00E2BA06 /* Level1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
 		A078B2591DFCD46400E2BA06 /* PolarRushScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolarRushScene.swift; sourceTree = "<group>"; };
+		A0A236991DFF219500AE18AD /* LevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
+		A0A2369C1DFF22A200AE18AD /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
+		A0A2369E1DFF23B800AE18AD /* Level2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,7 @@
 		A078B2181DFB545C00E2BA06 /* PolarRush */ = {
 			isa = PBXGroup;
 			children = (
+				A0A2369B1DFF228C00AE18AD /* Level2 */,
 				A078B2421DFB550700E2BA06 /* MenuScene */,
 				A078B2461DFB568000E2BA06 /* LevelScene */,
 				A078B2541DFC819700E2BA06 /* Level1 */,
@@ -122,6 +131,7 @@
 				A078B2281DFB545C00E2BA06 /* Assets.xcassets */,
 				A078B22A1DFB545C00E2BA06 /* Info.plist */,
 				A078B2591DFCD46400E2BA06 /* PolarRushScene.swift */,
+				A0A236991DFF219500AE18AD /* LevelManager.swift */,
 			);
 			path = PolarRush;
 			sourceTree = "<group>";
@@ -168,6 +178,7 @@
 			children = (
 				A078B2471DFB56A400E2BA06 /* PlayerNode.swift */,
 				A078B24C1DFB73D100E2BA06 /* GiftBox.swift */,
+				A019263A1DFD39A900D2E691 /* Door.swift */,
 			);
 			name = NodeClasses;
 			sourceTree = "<group>";
@@ -179,6 +190,15 @@
 				A078B2571DFC81BC00E2BA06 /* Level1.swift */,
 			);
 			name = Level1;
+			sourceTree = "<group>";
+		};
+		A0A2369B1DFF228C00AE18AD /* Level2 */ = {
+			isa = PBXGroup;
+			children = (
+				A0A2369C1DFF22A200AE18AD /* Level2.sks */,
+				A0A2369E1DFF23B800AE18AD /* Level2.swift */,
+			);
+			name = Level2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +293,7 @@
 				A078B2511DFC7FFE00E2BA06 /* levelScene.sks in Resources */,
 				A078B2201DFB545C00E2BA06 /* Game.xcassets in Resources */,
 				A078B2271DFB545C00E2BA06 /* Main.storyboard in Resources */,
+				A0A2369D1DFF22A200AE18AD /* Level2.sks in Resources */,
 				A078B2291DFB545C00E2BA06 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,14 +312,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A2369F1DFF23B800AE18AD /* Level2.swift in Sources */,
 				A078B2481DFB56A400E2BA06 /* PlayerNode.swift in Sources */,
 				A078B2221DFB545C00E2BA06 /* GameScene.swift in Sources */,
 				A078B2581DFC81BC00E2BA06 /* Level1.swift in Sources */,
 				A078B2401DFB550000E2BA06 /* MenuScene.swift in Sources */,
+				A0A2369A1DFF219500AE18AD /* LevelManager.swift in Sources */,
 				A078B24D1DFB73D100E2BA06 /* GiftBox.swift in Sources */,
 				A078B24A1DFB62CA00E2BA06 /* Utils.swift in Sources */,
 				A078B2241DFB545C00E2BA06 /* GameViewController.swift in Sources */,
 				A078B2451DFB556300E2BA06 /* GameControl.swift in Sources */,
+				A019263B1DFD39A900D2E691 /* Door.swift in Sources */,
 				A078B24F1DFBADE500E2BA06 /* SKTGameController.swift in Sources */,
 				A078B25A1DFCD46400E2BA06 /* PolarRushScene.swift in Sources */,
 				A078B21A1DFB545C00E2BA06 /* AppDelegate.swift in Sources */,
@@ -504,6 +528,7 @@
 				A078B23A1DFB545D00E2BA06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A078B23B1DFB545D00E2BA06 /* Build configuration list for PBXNativeTarget "PolarRushTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +537,7 @@
 				A078B23D1DFB545D00E2BA06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

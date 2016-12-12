@@ -24,6 +24,9 @@ class GameControl{
 	let displayTime: Double = 1
 	let fadeOutTime = 0.5
 	
+	// MARK: Menu Timing Constant.
+	let menuDelay = 0.25
+	
 	private init(){
 		
 	}
@@ -36,7 +39,8 @@ struct PhysicsCategory{
 	
 	static let playerCategory = UInt32(1)
 	static let platformCategory = UInt32(2)
-	static let giftBoxCategory = UInt32(0)
+	static let giftBoxCategory = UInt32(4)
+	static let doorCategory = UInt32(8)
 	
 }
 

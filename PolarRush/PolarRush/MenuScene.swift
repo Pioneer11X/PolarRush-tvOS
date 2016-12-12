@@ -20,6 +20,18 @@ class MenuScene: SKScene{
 	
 	var selectedOption: Int = 0
 	
+	var canSelect: Bool = true{
+		
+		didSet(newSelect){
+			if !newSelect{
+				let _ = Timer.scheduledTimer(withTimeInterval: GameControl.gameControl.menuDelay, repeats: false){_ in
+					self.canSelect = true
+				}
+			}
+		}
+		
+	}
+	
 	// MARK: -- Variables used for selection
 	var initialLocation: CGPoint = CGPoint.zero ; // Think this is not needed here.
 	var finalLocation: CGPoint?;
@@ -58,6 +70,7 @@ class MenuScene: SKScene{
 	override func update(_ currentTime: TimeInterval) {
 		
 		updateLabels();
+		useController()
 		
 	}
 	
@@ -119,6 +132,34 @@ class MenuScene: SKScene{
 		newTapRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
 		self.view?.addGestureRecognizer(newTapRecognizer)
 		
+	}
+	
+	func useController(){
+		if SKTGameController.sharedInstance.gameControllerConnected{
+			if SKTGameController.sharedInstance.gameControllerType == controllerType.extended && self.canSelect{
+				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.down.isPressed)!{
+					if selectedOption > 0{
+						selectedOption -= 1;
+					}else{
+						selectedOption = 2;
+					}
+					self.canSelect = false
+				}
+				
+				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.up.isPressed)!{
+					if selectedOption < 2{
+						selectedOption += 1;
+					}else{
+						selectedOption = 0;
+					}
+					self.canSelect = false
+				}
+				
+				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.buttonA.isPressed)!{
+					remoteTapped()
+				}
+			}
+		}
 	}
 	
 }

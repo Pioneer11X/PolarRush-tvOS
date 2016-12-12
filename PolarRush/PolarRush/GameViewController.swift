@@ -16,29 +16,33 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 		
 		GameControl.gameControl.gameViewController = self;
-        
-        if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-//            if let scene = SKScene(fileNamed: "GameScene") {
-			if let scene = SKScene(fileNamed: "MenuScene") {
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
-                // Present the scene
-                view.presentScene(scene)
-            }
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
-        }
+        loadLevel2()
+		
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
+	
+	func loadMenuScene(){
+		if let view = self.view as! SKView? {
+			// Load the SKScene from 'GameScene.sks'
+			//            if let scene = SKScene(fileNamed: "GameScene") {
+			if let scene = SKScene(fileNamed: "MenuScene") {
+				// Set the scale mode to scale to fit the window
+				scene.scaleMode = .aspectFill
+				
+				// Present the scene
+				view.presentScene(scene)
+			}
+			
+			view.ignoresSiblingOrder = true
+			
+			view.showsFPS = true
+			view.showsNodeCount = true
+		}
+	}
 	
 	func loadGameScene(){
 		if let view = self.view as! SKView? {
@@ -74,6 +78,15 @@ class GameViewController: UIViewController {
 			
 			view.showsFPS = true
 			view.showsNodeCount = true
+		}
+	}
+	
+	func loadLevel2(){
+		if let view = self.view as! SKView?{
+			if let scene = SKScene(fileNamed: "Level2"){
+				scene.scaleMode = .aspectFill
+				view.presentScene(scene)
+			}
 		}
 	}
 }
