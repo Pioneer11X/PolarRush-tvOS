@@ -34,6 +34,7 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		
 		self.physicsWorld.contactDelegate = self
 		self.addChild(newPlayer)
+		setupCamera()
 //		newPlayer.position = CGPoint(x: 100, y: 100)
 		newPlayer.position = CGPoint(x: 100, y: 100) + CGPoint(x: -1 * (self.view?.frame.size.width)!/2, y: -1 * (self.view?.frame.size.height)!/2)
 		newPlayer.zPosition = 5
@@ -46,6 +47,7 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		unlockDoor()
 		addGestureRecs()
 		
+		setupHUD()
 		
 	}
 	
@@ -180,6 +182,53 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 			// MARK: Door Reached.
 			newDoor.doorReached = true
 			
+		}
+		
+	}
+	
+	private func setupCamera(){
+//		self.camera = SKCameraNode() as! SKCameraNode
+		self.camera = self.childNode(withName: "levelCamera") as! SKCameraNode
+//		camera?.position = CGPoint(x: (self.view?.frame.size.width)!/2, y: (self.view?.frame.size.height)!/2)
+		camera?.position = CGPoint.zero
+	}
+	
+	private func setupHUD(){
+		
+		let hud = HUD.hud
+		
+		let scoreLabel: SKLabelNode = hud.scoreLabel
+		let highscoreLabel: SKLabelNode = hud.highScoreLabel
+		let timerLabel: SKLabelNode = hud.timerLabel
+		
+		let scoreNumberLabel: SKLabelNode = hud.scoreNumberLabel
+		let highScoreNumberLabel: SKLabelNode = hud.highScoreNumberLabel
+		let timerNumberLabel : SKLabelNode = hud.timerNumberLabel
+		
+		
+		highscoreLabel.position = CGPoint(x: (self.camera?.position.x)! - 775, y: (self.camera?.position.y)! + 500)
+		scoreLabel.position = CGPoint(x: (self.camera?.position.x)! - 775, y: 470)
+		scoreNumberLabel.position = CGPoint(x: (self.camera?.position.x)! + 10 - 775, y: 470)
+		highScoreNumberLabel.position = CGPoint(x: (self.camera?.position.x)! + 10 - 775, y: 500)
+		timerLabel.position = CGPoint(x: (self.camera?.position.x)! - 775, y: 440)
+		timerNumberLabel.position = CGPoint(x: (self.camera?.position.x)! + 10 - 775, y: 440)
+		
+		let nodes = [
+			scoreLabel,
+			highscoreLabel,
+			timerLabel,
+			
+			scoreNumberLabel,
+			highScoreNumberLabel,
+			timerNumberLabel
+		]
+		
+		for ins in nodes{
+			ins.removeFromParent()
+		}
+		
+		for ins in nodes{
+			self.addChild(ins)
 		}
 		
 	}
