@@ -56,7 +56,7 @@ class GameControl{
 	}
 	
 	var curLevel = 1
-	var maxLevel = 2
+	var maxLevel = 3
 	
 	private init(){
 		let defaults = UserDefaults.standard;

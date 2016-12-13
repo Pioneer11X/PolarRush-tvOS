@@ -11,6 +11,8 @@
 		A03120B11DFFDB3D00D0D207 /* CreditScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A03120B01DFFDB3D00D0D207 /* CreditScene.sks */; };
 		A03120B31DFFDF5C00D0D207 /* CreditScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03120B21DFFDF5C00D0D207 /* CreditScene.swift */; };
 		A03120B71DFFF96100D0D207 /* SnowParticle2.sks in Resources */ = {isa = PBXBuildFile; fileRef = A03120B61DFFF96100D0D207 /* SnowParticle2.sks */; };
+		A03120BA1DFFFEFD00D0D207 /* Level3.sks in Resources */ = {isa = PBXBuildFile; fileRef = A03120B91DFFFEFD00D0D207 /* Level3.sks */; };
+		A03120BD1DFFFF1800D0D207 /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03120BC1DFFFF1800D0D207 /* Level3.swift */; };
 		A078B21A1DFB545C00E2BA06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2191DFB545C00E2BA06 /* AppDelegate.swift */; };
 		A078B21C1DFB545C00E2BA06 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A078B21B1DFB545C00E2BA06 /* GameScene.sks */; };
 		A078B2201DFB545C00E2BA06 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A078B21F1DFB545C00E2BA06 /* Game.xcassets */; };
@@ -56,6 +58,8 @@
 		A03120B01DFFDB3D00D0D207 /* CreditScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CreditScene.sks; sourceTree = "<group>"; };
 		A03120B21DFFDF5C00D0D207 /* CreditScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditScene.swift; sourceTree = "<group>"; };
 		A03120B61DFFF96100D0D207 /* SnowParticle2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SnowParticle2.sks; sourceTree = "<group>"; };
+		A03120B91DFFFEFD00D0D207 /* Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level3.sks; sourceTree = "<group>"; };
+		A03120BC1DFFFF1800D0D207 /* Level3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level3.swift; sourceTree = "<group>"; };
 		A078B2161DFB545C00E2BA06 /* PolarRush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolarRush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A078B2191DFB545C00E2BA06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A078B21B1DFB545C00E2BA06 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -108,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A03120B81DFFFEF000D0D207 /* Level3 */ = {
+			isa = PBXGroup;
+			children = (
+				A03120B91DFFFEFD00D0D207 /* Level3.sks */,
+				A03120BC1DFFFF1800D0D207 /* Level3.swift */,
+			);
+			name = Level3;
+			sourceTree = "<group>";
+		};
 		A078B20D1DFB545C00E2BA06 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +146,7 @@
 		A078B2181DFB545C00E2BA06 /* PolarRush */ = {
 			isa = PBXGroup;
 			children = (
+				A03120B81DFFFEF000D0D207 /* Level3 */,
 				A0A548E31DFFAD0A00A57C02 /* Credits Scene */,
 				A0A2369B1DFF228C00AE18AD /* Level2 */,
 				A078B2421DFB550700E2BA06 /* MenuScene */,
@@ -207,8 +221,8 @@
 		A0A2369B1DFF228C00AE18AD /* Level2 */ = {
 			isa = PBXGroup;
 			children = (
-				A0A2369C1DFF22A200AE18AD /* Level2.sks */,
 				A0A2369E1DFF23B800AE18AD /* Level2.swift */,
+				A0A2369C1DFF22A200AE18AD /* Level2.sks */,
 			);
 			name = Level2;
 			sourceTree = "<group>";
@@ -311,6 +325,7 @@
 				A078B2411DFB550000E2BA06 /* MenuScene.sks in Resources */,
 				A0A548E21DFF859900A57C02 /* Jump-SoundBible.mp3 in Resources */,
 				A03120B11DFFDB3D00D0D207 /* CreditScene.sks in Resources */,
+				A03120BA1DFFFEFD00D0D207 /* Level3.sks in Resources */,
 				A0F609F71DFFD0D600CD00BB /* MerryChristmasFlake.ttf in Resources */,
 				A078B2561DFC81AF00E2BA06 /* Level1.sks in Resources */,
 				A0A548E01DFF859300A57C02 /* jingle-bells.mp3 in Resources */,
@@ -355,6 +370,7 @@
 				A0A548DA1DFF618800A57C02 /* HUD.swift in Sources */,
 				A0A548DE1DFF853B00A57C02 /* SKTAudio.swift in Sources */,
 				A0A548DC1DFF641D00A57C02 /* GameConstants.swift in Sources */,
+				A03120BD1DFFFF1800D0D207 /* Level3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

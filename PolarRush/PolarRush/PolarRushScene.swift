@@ -75,9 +75,19 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		updateHUD()
 		controllerSupport()
 		checkDoorReached()
+		updateCamera()
 	}
 	
 	func touchDown(atPoint pos : CGPoint) {
+		
+	}
+	
+	func updateCamera(){
+		
+		if  ( modulus(value: ((self.camera?.position)! - self.newPlayer.position).x ) > self.frame.size.width/2 ){
+//			print("Move it nwo");
+			// TODO: Move Camera Here.
+		}
 		
 	}
 	

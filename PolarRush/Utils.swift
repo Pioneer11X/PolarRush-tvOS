@@ -26,3 +26,7 @@ func * ( left: CGPoint, right: Double) -> CGPoint {
 	let new = CGFloat(right)
 	return CGPoint(x: new * left.x, y: new * left.y )
 }
+
+func modulus (value: CGFloat) -> CGFloat{
+	return value < 0 ? -1 * value : value
+}
