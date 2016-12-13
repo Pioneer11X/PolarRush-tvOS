@@ -46,6 +46,7 @@ class MenuScene: SKScene{
 	
 	override func didMove(to view: SKView) {
 		
+		setupSnow()
 		setupLabels();
 		setupTapRecognizers()
 		
@@ -80,6 +81,13 @@ class MenuScene: SKScene{
 		updateLabels();
 		useController()
 		
+	}
+	
+	func setupSnow(){
+		let emitterNode = SKEmitterNode(fileNamed: "SnowParticle2")
+		emitterNode?.position = CGPoint(x: 0, y: 360)
+		emitterNode?.zPosition = 5
+		self.addChild(emitterNode!)
 	}
 	
 	func setupLabels(){

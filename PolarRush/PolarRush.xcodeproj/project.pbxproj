@@ -10,6 +10,7 @@
 		A019263B1DFD39A900D2E691 /* Door.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019263A1DFD39A900D2E691 /* Door.swift */; };
 		A03120B11DFFDB3D00D0D207 /* CreditScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A03120B01DFFDB3D00D0D207 /* CreditScene.sks */; };
 		A03120B31DFFDF5C00D0D207 /* CreditScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03120B21DFFDF5C00D0D207 /* CreditScene.swift */; };
+		A03120B71DFFF96100D0D207 /* SnowParticle2.sks in Resources */ = {isa = PBXBuildFile; fileRef = A03120B61DFFF96100D0D207 /* SnowParticle2.sks */; };
 		A078B21A1DFB545C00E2BA06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2191DFB545C00E2BA06 /* AppDelegate.swift */; };
 		A078B21C1DFB545C00E2BA06 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A078B21B1DFB545C00E2BA06 /* GameScene.sks */; };
 		A078B2201DFB545C00E2BA06 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A078B21F1DFB545C00E2BA06 /* Game.xcassets */; };
@@ -54,6 +55,7 @@
 		A019263A1DFD39A900D2E691 /* Door.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Door.swift; sourceTree = "<group>"; };
 		A03120B01DFFDB3D00D0D207 /* CreditScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CreditScene.sks; sourceTree = "<group>"; };
 		A03120B21DFFDF5C00D0D207 /* CreditScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditScene.swift; sourceTree = "<group>"; };
+		A03120B61DFFF96100D0D207 /* SnowParticle2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SnowParticle2.sks; sourceTree = "<group>"; };
 		A078B2161DFB545C00E2BA06 /* PolarRush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolarRush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A078B2191DFB545C00E2BA06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A078B21B1DFB545C00E2BA06 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		A078B2421DFB550700E2BA06 /* MenuScene */ = {
 			isa = PBXGroup;
 			children = (
+				A03120B61DFFF96100D0D207 /* SnowParticle2.sks */,
 				A078B23E1DFB550000E2BA06 /* MenuScene.swift */,
 				A078B23F1DFB550000E2BA06 /* MenuScene.sks */,
 			);
@@ -314,6 +317,7 @@
 				A078B2201DFB545C00E2BA06 /* Game.xcassets in Resources */,
 				A078B2271DFB545C00E2BA06 /* Main.storyboard in Resources */,
 				A0A2369D1DFF22A200AE18AD /* Level2.sks in Resources */,
+				A03120B71DFFF96100D0D207 /* SnowParticle2.sks in Resources */,
 				A078B2291DFB545C00E2BA06 /* Assets.xcassets in Resources */,
 				A0F609F81DFFD0D600CD00BB /* MerryChristmasStar.ttf in Resources */,
 			);
