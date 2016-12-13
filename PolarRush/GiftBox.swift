@@ -16,6 +16,7 @@ class GiftBox: SKSpriteNode{
 		let boxTexture = SKTexture(imageNamed: "gift")
 		
 		super.init(texture: boxTexture, color: UIColor.blue, size: GameControl.gameControl.blockSize)
+		self.name = "giftBox"
 		
 		self.physicsBody = SKPhysicsBody(rectangleOf: GameControl.gameControl.blockSize, center: self.position)
 		

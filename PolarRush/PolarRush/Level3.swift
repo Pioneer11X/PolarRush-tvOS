@@ -19,7 +19,6 @@ class Level3: PolarRushScene{
 		
 		let rightWallPos = (self.childNode(withName: "rightWall")?.position.x)! - (self.childNode(withName: "rightWall")?.frame.size.width)!/2
 		
-//		newBox.position = CGPoint(x: self.frame.size.width/2 - 100, y: -1 * self.frame.size.height/2 + 100)
 		newBox.position = CGPoint(x: rightWallPos - 100, y: -1 * self.frame.size.height/2 + 100)
 		self.addChild(newBox)
 		

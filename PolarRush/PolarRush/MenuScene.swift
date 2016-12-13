@@ -146,7 +146,7 @@ class MenuScene: SKScene{
 		case 0:
 			// MARK: -- Call Load Game Scene Here
 			print("NewGame Selected")
-			GameControl.gameControl.gameViewController?.loadLevel1()
+			GameControl.gameControl.gameViewController?.loadNextLevel()
 		case 1:
 			// TODO: -- Call Options Scene here.
 			GameControl.gameControl.gameViewController?.loadLevel1()

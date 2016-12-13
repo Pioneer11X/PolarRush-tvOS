@@ -55,7 +55,7 @@ class GameControl{
 		}
 	}
 	
-	var curLevel = 1
+	var curLevel = 2
 	var maxLevel = 3
 	
 	private init(){

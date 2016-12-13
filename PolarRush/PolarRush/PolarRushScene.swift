@@ -57,8 +57,7 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		
 		
 		GameControl.gameControl.resetLevelTimer()
-		// TODO: Need to remove this and change this to unlock only when all the gift boxes are collected.
-		unlockDoor()
+		
 		addGestureRecs()
 		setupHUD()
 		setupLevelTimer()
@@ -67,15 +66,27 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	
 	func unlockDoor(){
 		// MARK: This needs to be called when all the giftboxes on the level are collected.
-		// TODO: Add a function to check the giftboxes and call it in update.
+		newDoor.removeFromParent()
 		self.addChild(newDoor)
 	}
 	
 	override func update(_ currentTime: TimeInterval) {
+		
+		if noMoreBoxes(){
+			unlockDoor()
+		}
+		
 		updateHUD()
 		controllerSupport()
 		checkDoorReached()
 		updateCamera()
+	}
+	
+	func noMoreBoxes() -> Bool{
+		if self.childNode(withName: "giftBox") != nil {
+			return false
+		}
+		return true
 	}
 	
 	func touchDown(atPoint pos : CGPoint) {
@@ -84,7 +95,7 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	
 	func updateCamera(){
 		
-		if  ( modulus(value: ((self.camera?.position)! - self.newPlayer.position).x ) > self.frame.size.width/2 ){
+		if  ( modulus(value: ((self.camera?.position)! - self.newPlayer.position).x ) > self.frame.size.width/4 ){
 			// TODO: Move Camera Here.
 			
 			// if the player crosses the width of the screen, Move it towards him.
@@ -310,6 +321,14 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		self.timerNumberLabel.text = "\(GameControl.gameControl.timer)"
 		self.scoreNumberLabel.text = "\(GameControl.gameControl.curScore)"
 		self.highScoreNumberLabel.text = "\(GameControl.gameControl.highScore)"
+		
+		// MARK: Position Updating
+		highscoreLabel.position = CGPoint(x: (self.camera?.position.x)! - 775, y: (self.camera?.position.y)! + 500)
+		scoreLabel.position = CGPoint(x: (self.camera?.position.x)! - 775, y: 470)
+		scoreNumberLabel.position = CGPoint(x: (self.camera?.position.x)! + 10 - 775, y: 470)
+		highScoreNumberLabel.position = CGPoint(x: (self.camera?.position.x)! + 10 - 775, y: 500)
+		timerLabel.position = CGPoint(x: (self.camera?.position.x)! - 775, y: 440)
+		timerNumberLabel.position = CGPoint(x: (self.camera?.position.x)! + 10 - 775, y: 440)
 		
 	}
 	
