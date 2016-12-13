@@ -55,7 +55,7 @@ extension Level1{
 	@objc func printIns( text: String ){
 		
 		// TODO: Change the font here.
-		var newLabelNode = SKLabelNode(fontNamed: "Arial")
+		let newLabelNode = SKLabelNode(fontNamed: "Arial")
 		
 		newLabelNode.text = text
 		newLabelNode.position = CGPoint(x: 0, y: (self.view?.frame.size.height)!/4)

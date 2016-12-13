@@ -16,8 +16,10 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 		
 		GameControl.gameControl.gameViewController = self;
+		SKTAudio.sharedInstance().playBackgroundMusic(filename: "jingle-bells.mp3")
+		loadMenuScene()
 //        loadLevel1()
-		loadLevel2()
+//		loadLevel2()
 		
     }
 
@@ -28,18 +30,11 @@ class GameViewController: UIViewController {
 	
 	func loadMenuScene(){
 		if let view = self.view as! SKView? {
-			// Load the SKScene from 'GameScene.sks'
-			//            if let scene = SKScene(fileNamed: "GameScene") {
 			if let scene = SKScene(fileNamed: "MenuScene") {
-				// Set the scale mode to scale to fit the window
 				scene.scaleMode = .aspectFill
-				
-				// Present the scene
 				view.presentScene(scene)
 			}
-			
 			view.ignoresSiblingOrder = true
-			
 			view.showsFPS = true
 			view.showsNodeCount = true
 		}

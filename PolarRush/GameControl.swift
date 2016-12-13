@@ -24,8 +24,10 @@ class GameControl{
 	let displayTime: Double = 1
 	let fadeOutTime = 0.5
 	
-	// MARK: Menu Timing Constant.
+	// MARK: Menu Constants.
 	let menuDelay = 0.25
+	let menuInitialScale:CGFloat = 1
+	let menuHighlightedScale:CGFloat = 1.2
 	
 	// MARK: GameData
 	
@@ -41,7 +43,6 @@ class GameControl{
 	var maxLevel = 2
 	
 	private init(){
-		SKTAudio.sharedInstance().playBackgroundMusic(filename: "jingle-bells.mp3")
 	}
 	
 	static var gameControl = GameControl()

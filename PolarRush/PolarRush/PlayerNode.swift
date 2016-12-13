@@ -102,6 +102,7 @@ class PlayerNode: SKSpriteNode{
 		if canJump{
 			canJump = false
 			self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 50))
+			SKTAudio.sharedInstance().playSoundEffect(filename: "Jump-SoundBible.mp3")
 		}
 	}
 	

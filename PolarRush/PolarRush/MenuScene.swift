@@ -14,9 +14,9 @@ class MenuScene: SKScene{
 	var originalFontSize: CGFloat = 144;
 	var highlightedFontSize: CGFloat = 200;
 	
-	var newGameNode: SKLabelNode?
-	var optionsNode: SKLabelNode?
-	var instructionsNode: SKLabelNode?
+	var newGameNode: SKSpriteNode?
+	var creditsNode: SKSpriteNode?
+	var optionsNode: SKSpriteNode?
 	
 	var selectedOption: Int = 0
 	
@@ -76,13 +76,13 @@ class MenuScene: SKScene{
 	
 	func setupLabels(){
 		
-		newGameNode = self.childNode(withName: "newGame") as! SKLabelNode?
-		optionsNode = self.childNode(withName: "options") as! SKLabelNode?
-		instructionsNode = self.childNode(withName: "instructions") as! SKLabelNode?
+		newGameNode = self.childNode(withName: "newGameNode") as! SKSpriteNode?
+		creditsNode = self.childNode(withName: "creditsNode") as! SKSpriteNode?
+		optionsNode = self.childNode(withName: "optionsNode") as! SKSpriteNode?
 		
 		newGameNode?.position = CGPoint(x: 0, y: (self.view?.frame.size.height)!/4);
-		instructionsNode?.position = CGPoint(x: 0, y: 0);
-		optionsNode?.position = CGPoint(x: 0, y: -1 * (self.view?.frame.size.height)!/4);
+		optionsNode?.position = CGPoint(x: 0, y: 0);
+		creditsNode?.position = CGPoint(x: 0, y: -1 * (self.view?.frame.size.height)!/4);
 		
 	}
 	
@@ -90,21 +90,21 @@ class MenuScene: SKScene{
 		
 		switch selectedOption {
 		case 0:
-			newGameNode?.fontSize = highlightedFontSize
-			instructionsNode?.fontSize = originalFontSize
-			optionsNode?.fontSize = originalFontSize
+			newGameNode?.setScale(GameControl.gameControl.menuHighlightedScale)
+			optionsNode?.setScale(GameControl.gameControl.menuInitialScale)
+			creditsNode?.setScale(GameControl.gameControl.menuInitialScale)
 		case 1:
-			newGameNode?.fontSize = originalFontSize
-			instructionsNode?.fontSize = highlightedFontSize
-			optionsNode?.fontSize = originalFontSize
+			newGameNode?.setScale(GameControl.gameControl.menuInitialScale)
+			optionsNode?.setScale(GameControl.gameControl.menuHighlightedScale)
+			creditsNode?.setScale(GameControl.gameControl.menuInitialScale)
 		case 2:
-			newGameNode?.fontSize = originalFontSize
-			instructionsNode?.fontSize = originalFontSize
-			optionsNode?.fontSize = highlightedFontSize
+			newGameNode?.setScale(GameControl.gameControl.menuInitialScale)
+			optionsNode?.setScale(GameControl.gameControl.menuInitialScale)
+			creditsNode?.setScale(GameControl.gameControl.menuHighlightedScale)
 		default:
-			newGameNode?.fontSize = originalFontSize
-			instructionsNode?.fontSize = originalFontSize
-			optionsNode?.fontSize = originalFontSize
+			newGameNode?.setScale(GameControl.gameControl.menuInitialScale)
+			optionsNode?.setScale(GameControl.gameControl.menuInitialScale)
+			creditsNode?.setScale(GameControl.gameControl.menuInitialScale)
 		}
 		
 	}
@@ -115,12 +115,14 @@ class MenuScene: SKScene{
 		case 0:
 			// MARK: -- Call Load Game Scene Here
 			print("NewGame Selected")
-			GameControl.gameControl.gameViewController?.loadGameScene()
-		case 1:
 			GameControl.gameControl.gameViewController?.loadLevel1()
-			print("Instructions Selected")
-		case 2:
+		case 1:
+			// TODO: -- Call Instructions Scene here.
+			GameControl.gameControl.gameViewController?.loadLevel1()
 			print("Options Selected")
+		case 2:
+			// TODO: Show options scene here.
+			print("Credits Selected")
 		default:
 			print("No Kappa")
 		}

@@ -29,8 +29,10 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		didSet(isGamePausedNew){
 			if self.isGamePaused{
 				self.view?.isPaused = true
+				SKTAudio.sharedInstance().pauseBackgroundMusic()
 			}else{
 				self.view?.isPaused = false
+				SKTAudio.sharedInstance().backgroundMusicPlayer?.play()
 			}
 		}
 	}
@@ -160,6 +162,10 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		pauseRec.allowedPressTypes = [ NSNumber(value: UIPressType.playPause.rawValue) ]
 		self.view?.addGestureRecognizer(pauseRec)
 		
+		let menuRec = UITapGestureRecognizer(target: self, action: #selector(goToMenu(_:)))
+		menuRec.allowedPressTypes = [ NSNumber(value: UIPressType.menu.rawValue) ]
+		self.view?.addGestureRecognizer(menuRec)
+		
 	}
 	
 	func controllerSupport(){
@@ -203,15 +209,12 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	
 	private func setupCamera(){
 //		self.camera = SKCameraNode() as! SKCameraNode
-		self.camera = self.childNode(withName: "levelCamera") as! SKCameraNode
+		self.camera = self.childNode(withName: "levelCamera") as? SKCameraNode
 //		camera?.position = CGPoint(x: (self.view?.frame.size.width)!/2, y: (self.view?.frame.size.height)!/2)
 		camera?.position = CGPoint.zero
 	}
 	
 	private func setupHUD(){
-		
-		let hud = HUD.hud
-		
 		
 		highscoreLabel.position = CGPoint(x: (self.camera?.position.x)! - 775, y: (self.camera?.position.y)! + 500)
 		scoreLabel.position = CGPoint(x: (self.camera?.position.x)! - 775, y: 470)
@@ -264,6 +267,10 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		self.timerNumberLabel.text = "\(GameControl.gameControl.timer)"
 		self.scoreNumberLabel.text = "\(GameControl.gameControl.curScore)"
 		
+	}
+	
+	@objc private func goToMenu(_ recognizer: UITapGestureRecognizer){
+		GameControl.gameControl.gameViewController?.loadMenuScene()
 	}
 	
 	func flashMessage(text: String, isInstruction: Bool){
