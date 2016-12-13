@@ -15,7 +15,9 @@ class GameControl{
 	
 	let blockSize = CGSize(width: 100, height: 100)
 	let movementSpeed: CGFloat = 500
-	let movementTime = 0.75
+	var movementTime = 0.75
+	let movementTimeExt = 0.25
+	let movementTimeInt = 0.75
 	let movementImpulse: CGFloat = 20
 	let playerMass : CGFloat = 0.05
 	
@@ -55,7 +57,7 @@ class GameControl{
 		}
 	}
 	
-	var curLevel = 2
+	var curLevel = 0
 	var maxLevel = 3
 	
 	private init(){

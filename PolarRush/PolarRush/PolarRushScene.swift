@@ -135,6 +135,7 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	}
 	
 	func touchMoved(toPoint pos : CGPoint) {
+		GameControl.gameControl.movementTime = GameControl.gameControl.movementTimeInt
 		let diff: CGPoint = pos - initialLocation
 
 		if diff.x < -10 {
@@ -228,12 +229,15 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 			if SKTGameController.sharedInstance.gameControllerType == controllerType.extended{
 				
 				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.left.isPressed)!{
+					GameControl.gameControl.movementTime = GameControl.gameControl.movementTimeExt
 					newPlayer.moveLeftImpulse()
 				}
 				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.right.isPressed)!{
+					GameControl.gameControl.movementTime = GameControl.gameControl.movementTimeExt
 					newPlayer.moveRightImpulse()
 				}
 				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.buttonA.isPressed)!{
+					GameControl.gameControl.movementTime = GameControl.gameControl.movementTimeExt
 					newPlayer.jump()
 				}
 				

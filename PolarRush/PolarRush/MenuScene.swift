@@ -49,6 +49,7 @@ class MenuScene: SKScene{
 		setupSnow()
 		setupLabels();
 		setupTapRecognizers()
+		setCanChange()
 		
 	}
 	
@@ -74,6 +75,12 @@ class MenuScene: SKScene{
 			}
 		}
 		
+	}
+	
+	func setCanChange(){
+		let _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){_ in
+			self.canSelect = true
+		}
 	}
 	
 	override func update(_ currentTime: TimeInterval) {
@@ -170,20 +177,20 @@ class MenuScene: SKScene{
 	func useController(){
 		if SKTGameController.sharedInstance.gameControllerConnected{
 			if SKTGameController.sharedInstance.gameControllerType == controllerType.extended && self.canSelect{
-				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.down.isPressed)!{
-					if selectedOption > 0{
-						selectedOption -= 1;
-					}else{
-						selectedOption = 2;
-					}
-					self.canSelect = false
-				}
-				
-				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.up.isPressed)!{
+				if (SKTGameController.sharedInstance.gameController.microGamepad?.dpad.down.isPressed)!{
 					if selectedOption < 2{
 						selectedOption += 1;
 					}else{
 						selectedOption = 0;
+					}
+					self.canSelect = false
+				}
+				
+				if (SKTGameController.sharedInstance.gameController.microGamepad?.dpad.up.isPressed)!{
+					if selectedOption > 0{
+						selectedOption -= 1;
+					}else{
+						selectedOption = 2;
 					}
 					self.canSelect = false
 				}
