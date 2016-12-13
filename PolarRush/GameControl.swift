@@ -27,11 +27,28 @@ class GameControl{
 	// MARK: Menu Timing Constant.
 	let menuDelay = 0.25
 	
+	// MARK: GameData
+	
+	let initTimer = 20
+	let initScore = 0
+	
+	var timer = 20
+	var curScore = 0
+	
+	var highScore = 100
+	
+	var curLevel = 1
+	var maxLevel = 2
+	
 	private init(){
 		
 	}
 	
 	static var gameControl = GameControl()
+	
+	func resetLevelTimer(){
+		self.timer = self.initTimer
+	}
 	
 }
 

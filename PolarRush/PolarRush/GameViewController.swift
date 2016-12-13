@@ -16,7 +16,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 		
 		GameControl.gameControl.gameViewController = self;
-        loadLevel2()
+        loadLevel1()
 		
     }
 
@@ -88,5 +88,21 @@ class GameViewController: UIViewController {
 				view.presentScene(scene)
 			}
 		}
+	}
+	
+	func loadNextLevel(){
+		var i = GameControl.gameControl.curLevel
+		i = i + 1;
+		if i > GameControl.gameControl.maxLevel{
+			i = GameControl.gameControl.maxLevel
+		}
+		if let view = self.view as! SKView? {
+			if let scene = SKScene(fileNamed: "Level\(i)") {
+				scene.scaleMode = .aspectFill
+				let transition = SKTransition.fade(withDuration: 0.5);
+				view.presentScene(scene, transition: transition)
+			}
+		}
+		GameControl.gameControl.curLevel = i
 	}
 }

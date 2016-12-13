@@ -35,14 +35,17 @@ class HUD{
 		timerNumberLabel = SKLabelNode(fontNamed: "Arial")
 		timerNumberLabel.horizontalAlignmentMode = .left
 		timerNumberLabel.fontSize = 0.6 * scoreLabel.fontSize
+		timerNumberLabel.text = "\(GameControl.gameControl.timer)"
 		
 		scoreNumberLabel = SKLabelNode(fontNamed: "Arial")
 		scoreNumberLabel.horizontalAlignmentMode = .left
 		scoreNumberLabel.fontSize = 0.6 * scoreLabel.fontSize
+		scoreNumberLabel.text = "\(GameControl.gameControl.curScore)"
 		
 		highScoreNumberLabel = SKLabelNode(fontNamed: "Arial")
 		highScoreNumberLabel.horizontalAlignmentMode = .left
 		highScoreNumberLabel.fontSize = 0.6 * scoreLabel.fontSize
+		highScoreNumberLabel.text = "\(GameControl.gameControl.highScore)"
 	}
 	
 	static var hud: HUD = HUD()

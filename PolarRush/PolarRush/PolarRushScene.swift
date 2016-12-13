@@ -13,6 +13,16 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	
 	private var newPlayer = PlayerNode()
 	private var newDoor = Door()
+	private var won: Bool = false
+	
+	let scoreLabel: SKLabelNode = HUD.hud.scoreLabel
+	let highscoreLabel: SKLabelNode = HUD.hud.highScoreLabel
+	let timerLabel: SKLabelNode = HUD.hud.timerLabel
+	
+	let scoreNumberLabel: SKLabelNode = HUD.hud.scoreNumberLabel
+	let highScoreNumberLabel: SKLabelNode = HUD.hud.highScoreNumberLabel
+	let timerNumberLabel : SKLabelNode = HUD.hud.timerNumberLabel
+	
 	
 	// TODO: This is bugging out when the delay between pause and unpause is kind of less than 5 seconds.
 	var isGamePaused: Bool = false{
@@ -44,10 +54,12 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		newDoor.zPosition = 5
 		
 		
+		GameControl.gameControl.resetLevelTimer()
+		// TODO: Need to remove this and change this to unlock only when all the gift boxes are collected.
 		unlockDoor()
 		addGestureRecs()
-		
 		setupHUD()
+		setupLevelTimer()
 		
 	}
 	
@@ -58,6 +70,7 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	}
 	
 	override func update(_ currentTime: TimeInterval) {
+		updateHUD()
 		controllerSupport()
 		checkDoorReached()
 	}
@@ -177,7 +190,8 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		
 		if newDoor.contains(newPlayer.position){
 			if !newDoor.doorReached{
-				GameControl.gameControl.gameViewController?.loadLevel2()
+				self.won = true
+				GameControl.gameControl.gameViewController?.loadNextLevel()
 			}
 			// MARK: Door Reached.
 			newDoor.doorReached = true
@@ -196,14 +210,6 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	private func setupHUD(){
 		
 		let hud = HUD.hud
-		
-		let scoreLabel: SKLabelNode = hud.scoreLabel
-		let highscoreLabel: SKLabelNode = hud.highScoreLabel
-		let timerLabel: SKLabelNode = hud.timerLabel
-		
-		let scoreNumberLabel: SKLabelNode = hud.scoreNumberLabel
-		let highScoreNumberLabel: SKLabelNode = hud.highScoreNumberLabel
-		let timerNumberLabel : SKLabelNode = hud.timerNumberLabel
 		
 		
 		highscoreLabel.position = CGPoint(x: (self.camera?.position.x)! - 775, y: (self.camera?.position.y)! + 500)
@@ -231,6 +237,65 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 			self.addChild(ins)
 		}
 		
+	}
+	
+	private func setupLevelTimer(){
+		
+		_ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){
+			_ in
+			if !self.won && GameControl.gameControl.timer > 0{
+				GameControl.gameControl.timer -= 1
+				
+				self.scoreNumberLabel.text = "\(GameControl.gameControl.timer)"
+				self.highScoreNumberLabel.text = "\(GameControl.gameControl.highScore)"
+				self.timerNumberLabel.text = "\(GameControl.gameControl.timer)"
+			}
+			if (GameControl.gameControl.timer < 1) {
+				if !( self.childNode(withName: "flashedMessage") != nil ){
+					self.flashMessage(text: "You were too late.", isInstruction: false)
+				}
+			}
+		}
+	}
+	
+	private func updateHUD(){
+		
+		self.timerNumberLabel.text = "\(GameControl.gameControl.timer)"
+		
+	}
+	
+	func flashMessage(text: String, isInstruction: Bool){
+		
+		let textNode = SKLabelNode(fontNamed: GameConstants.gameConstants.fontName);
+		textNode.text = text;
+		textNode.name = "flashedMessage"
+		
+		if isInstruction{
+			textNode.position = CGPoint(x: (self.camera?.position.x)! ,y: -150);
+			textNode.zPosition = 5
+			textNode.fontColor = UIColor.white
+			textNode.fontSize = 32
+			self.addChild(textNode)
+			
+			textNode.run(SKAction.sequence([
+				SKAction.wait(forDuration: 2),
+				SKAction.fadeOut(withDuration: 2)
+				]))
+		}else{
+			textNode.position = CGPoint(x: (self.camera?.position.x)! ,y: 0);
+			textNode.zPosition = 5
+			textNode.fontColor = UIColor.white
+			textNode.fontSize = 36
+			self.addChild(textNode)
+			
+			textNode.run(SKAction.sequence([
+				SKAction.repeat(SKAction.sequence([
+					SKAction.scale(by: 2, duration: 0.5),
+					SKAction.scale(by: 0.5, duration: 1)
+					]),count: 3),
+				SKAction.fadeOut(withDuration: 2)
+				]))
+		}
 	}
 	
 }
