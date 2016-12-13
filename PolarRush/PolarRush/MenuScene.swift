@@ -18,6 +18,10 @@ class MenuScene: SKScene{
 	var creditsNode: SKSpriteNode?
 	var optionsNode: SKSpriteNode?
 	
+	var nGNIP: CGPoint?
+	var cNIP: CGPoint?
+	var oNIP: CGPoint?
+	
 	var selectedOption: Int = 0
 	
 	var canSelect: Bool = true{
@@ -80,33 +84,38 @@ class MenuScene: SKScene{
 		creditsNode = self.childNode(withName: "creditsNode") as! SKSpriteNode?
 		optionsNode = self.childNode(withName: "optionsNode") as! SKSpriteNode?
 		
-		newGameNode?.position = CGPoint(x: 0, y: (self.view?.frame.size.height)!/4);
-		optionsNode?.position = CGPoint(x: 0, y: 0);
-		creditsNode?.position = CGPoint(x: 0, y: -1 * (self.view?.frame.size.height)!/4);
+		nGNIP = newGameNode?.position
+		cNIP = creditsNode?.position
+		oNIP = optionsNode?.position
+		
+//		newGameNode?.position = CGPoint(x: 0, y: (self.view?.frame.size.height)!/4);
+//		optionsNode?.position = CGPoint(x: 0, y: 0);
+//		creditsNode?.position = CGPoint(x: 0, y: -1 * (self.view?.frame.size.height)!/4);
 		
 	}
 	
 	func updateLabels(){
 		
 		switch selectedOption {
+			
 		case 0:
-			newGameNode?.setScale(GameControl.gameControl.menuHighlightedScale)
-			optionsNode?.setScale(GameControl.gameControl.menuInitialScale)
-			creditsNode?.setScale(GameControl.gameControl.menuInitialScale)
+			resetLabels()
+			newGameNode?.run(SKAction.move(by: GameControl.gameControl.menuMovementDistance, duration: GameControl.gameControl.menuMovementTime))
 		case 1:
-			newGameNode?.setScale(GameControl.gameControl.menuInitialScale)
-			optionsNode?.setScale(GameControl.gameControl.menuHighlightedScale)
-			creditsNode?.setScale(GameControl.gameControl.menuInitialScale)
+			resetLabels()
+			optionsNode?.run(SKAction.move(by: GameControl.gameControl.menuMovementDistance, duration: GameControl.gameControl.menuMovementTime))
 		case 2:
-			newGameNode?.setScale(GameControl.gameControl.menuInitialScale)
-			optionsNode?.setScale(GameControl.gameControl.menuInitialScale)
-			creditsNode?.setScale(GameControl.gameControl.menuHighlightedScale)
+			resetLabels()
+			creditsNode?.run(SKAction.move(by: GameControl.gameControl.menuMovementDistance, duration: GameControl.gameControl.menuMovementTime))
 		default:
-			newGameNode?.setScale(GameControl.gameControl.menuInitialScale)
-			optionsNode?.setScale(GameControl.gameControl.menuInitialScale)
-			creditsNode?.setScale(GameControl.gameControl.menuInitialScale)
+			resetLabels()
 		}
-		
+	}
+	
+	func resetLabels(){
+		newGameNode?.run(SKAction.move(to: nGNIP!, duration: GameControl.gameControl.menuMovementTime))
+		optionsNode?.run(SKAction.move(to: oNIP!, duration: GameControl.gameControl.menuMovementTime))
+		creditsNode?.run(SKAction.move(to: cNIP!, duration: GameControl.gameControl.menuMovementTime))
 	}
 	
 	func remoteTapped(){
@@ -117,11 +126,11 @@ class MenuScene: SKScene{
 			print("NewGame Selected")
 			GameControl.gameControl.gameViewController?.loadLevel1()
 		case 1:
-			// TODO: -- Call Instructions Scene here.
+			// TODO: -- Call Options Scene here.
 			GameControl.gameControl.gameViewController?.loadLevel1()
 			print("Options Selected")
 		case 2:
-			// TODO: Show options scene here.
+			// TODO: Show Credits scene here.
 			print("Credits Selected")
 		default:
 			print("No Kappa")
