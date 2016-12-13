@@ -41,7 +41,7 @@ class GameControl{
 	var maxLevel = 2
 	
 	private init(){
-		
+		SKTAudio.sharedInstance().playBackgroundMusic(filename: "jingle-bells.mp3")
 	}
 	
 	static var gameControl = GameControl()
@@ -49,6 +49,9 @@ class GameControl{
 	func resetLevelTimer(){
 		self.timer = self.initTimer
 	}
+	
+	// MARK: Options
+	var playSounds: Bool = true
 	
 }
 

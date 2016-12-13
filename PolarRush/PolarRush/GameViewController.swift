@@ -16,7 +16,8 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 		
 		GameControl.gameControl.gameViewController = self;
-        loadLevel1()
+//        loadLevel1()
+		loadLevel2()
 		
     }
 

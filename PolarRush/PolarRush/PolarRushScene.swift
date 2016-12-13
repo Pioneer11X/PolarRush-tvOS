@@ -127,6 +127,7 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 			}else{
 				contact.bodyB.node?.removeFromParent()
 			}
+			GameControl.gameControl.curScore += 10
 		}
 	}
 	
@@ -261,6 +262,7 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	private func updateHUD(){
 		
 		self.timerNumberLabel.text = "\(GameControl.gameControl.timer)"
+		self.scoreNumberLabel.text = "\(GameControl.gameControl.curScore)"
 		
 	}
 	

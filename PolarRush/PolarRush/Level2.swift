@@ -14,8 +14,10 @@ class Level2: PolarRushScene{
 	override func didMove(to view: SKView) {
 		
 		super.didMove(to: self.view!)
-		//		let newBox = GiftBox()
-		//		self.addChild(newBox)
+		
+		let newBox = GiftBox()
+		newBox.position = CGPoint(x: self.frame.size.width/2 - 100, y: -1 * self.frame.size.height/2 + 100)
+		self.addChild(newBox)
 		
 		displayInstructions()
 		

@@ -35,6 +35,9 @@
 		A0A548D81DFF4F1700A57C02 /* PauseOverLaySingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A548D71DFF4F1700A57C02 /* PauseOverLaySingleton.swift */; };
 		A0A548DA1DFF618800A57C02 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A548D91DFF618800A57C02 /* HUD.swift */; };
 		A0A548DC1DFF641D00A57C02 /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A548DB1DFF641D00A57C02 /* GameConstants.swift */; };
+		A0A548DE1DFF853B00A57C02 /* SKTAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A548DD1DFF853B00A57C02 /* SKTAudio.swift */; };
+		A0A548E01DFF859300A57C02 /* jingle-bells.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A0A548DF1DFF859300A57C02 /* jingle-bells.mp3 */; };
+		A0A548E21DFF859900A57C02 /* Jump-SoundBible.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A0A548E11DFF859900A57C02 /* Jump-SoundBible.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,9 @@
 		A0A548D71DFF4F1700A57C02 /* PauseOverLaySingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseOverLaySingleton.swift; sourceTree = "<group>"; };
 		A0A548D91DFF618800A57C02 /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		A0A548DB1DFF641D00A57C02 /* GameConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
+		A0A548DD1DFF853B00A57C02 /* SKTAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKTAudio.swift; path = PolarRush/SKTAudio.swift; sourceTree = "<group>"; };
+		A0A548DF1DFF859300A57C02 /* jingle-bells.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "jingle-bells.mp3"; sourceTree = "<group>"; };
+		A0A548E11DFF859900A57C02 /* Jump-SoundBible.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jump-SoundBible.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,8 @@
 			children = (
 				A078B24B1DFB73B900E2BA06 /* NodeClasses */,
 				A078B2431DFB554000E2BA06 /* Singletons */,
+				A0A548DF1DFF859300A57C02 /* jingle-bells.mp3 */,
+				A0A548E11DFF859900A57C02 /* Jump-SoundBible.mp3 */,
 				A078B2181DFB545C00E2BA06 /* PolarRush */,
 				A078B2321DFB545D00E2BA06 /* PolarRushTests */,
 				A078B2171DFB545C00E2BA06 /* Products */,
@@ -169,6 +177,7 @@
 				A0A548D71DFF4F1700A57C02 /* PauseOverLaySingleton.swift */,
 				A0A548D91DFF618800A57C02 /* HUD.swift */,
 				A0A548DB1DFF641D00A57C02 /* GameConstants.swift */,
+				A0A548DD1DFF853B00A57C02 /* SKTAudio.swift */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -297,8 +306,10 @@
 			files = (
 				A078B21C1DFB545C00E2BA06 /* GameScene.sks in Resources */,
 				A078B2411DFB550000E2BA06 /* MenuScene.sks in Resources */,
+				A0A548E21DFF859900A57C02 /* Jump-SoundBible.mp3 in Resources */,
 				A078B2561DFC81AF00E2BA06 /* Level1.sks in Resources */,
 				A078B21E1DFB545C00E2BA06 /* Actions.sks in Resources */,
+				A0A548E01DFF859300A57C02 /* jingle-bells.mp3 in Resources */,
 				A078B2511DFC7FFE00E2BA06 /* levelScene.sks in Resources */,
 				A078B2201DFB545C00E2BA06 /* Game.xcassets in Resources */,
 				A078B2271DFB545C00E2BA06 /* Main.storyboard in Resources */,
@@ -338,6 +349,7 @@
 				A078B21A1DFB545C00E2BA06 /* AppDelegate.swift in Sources */,
 				A0A548DA1DFF618800A57C02 /* HUD.swift in Sources */,
 				A078B2531DFC800C00E2BA06 /* LevelScene.swift in Sources */,
+				A0A548DE1DFF853B00A57C02 /* SKTAudio.swift in Sources */,
 				A0A548DC1DFF641D00A57C02 /* GameConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
