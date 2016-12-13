@@ -149,7 +149,7 @@ class MenuScene: SKScene{
 			GameControl.gameControl.gameViewController?.loadNextLevel()
 		case 1:
 			// TODO: -- Call Options Scene here.
-			GameControl.gameControl.gameViewController?.loadLevel1()
+			GameControl.gameControl.gameViewController?.loadInsScene()
 			print("Options Selected")
 		case 2:
 			// MARK: Show Credits scene here.

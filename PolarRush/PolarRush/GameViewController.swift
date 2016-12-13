@@ -112,4 +112,14 @@ class GameViewController: UIViewController {
 			}
 		}
 	}
+	
+	func loadInsScene(){
+		if let view = self.view as! SKView? {
+			if let scene = SKScene(fileNamed: "InsScene") {
+				scene.scaleMode = .aspectFill
+				let transition = SKTransition.fade(withDuration: 0.5);
+				view.presentScene(scene, transition: transition)
+			}
+		}
+	}
 }

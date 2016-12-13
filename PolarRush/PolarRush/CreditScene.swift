@@ -51,7 +51,36 @@ class CreditScene: SKScene{
 			}
 		}
 		
+//		setupGest()
+		
 		
 	}
+	
+	override func update(_ currentTime: TimeInterval) {
+//		checkController()
+	}
+	
+	private func checkController(){
+		if SKTGameController.sharedInstance.gameControllerType == controllerType.extended{
+			if (SKTGameController.sharedInstance.gameController.extendedGamepad?.buttonA.isPressed)!{
+				loadMenuScene()
+			}
+		}
+	}
+	
+	private func loadMenuScene(){
+		GameControl.gameControl.gameViewController?.loadMenuScene()
+	}
+	
+	@objc private func RemoteTapped(_ recognizer: UITapGestureRecognizer){
+		loadMenuScene()
+	}
+	
+	private func setupGest(){
+		let newRec = UITapGestureRecognizer(target: self, action: #selector(RemoteTapped(_:)))
+		newRec.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
+		self.view?.addGestureRecognizer(newRec)
+	}
+
 	
 }
