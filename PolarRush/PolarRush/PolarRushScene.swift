@@ -24,12 +24,12 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	let timerNumberLabel : SKLabelNode = HUD.hud.timerNumberLabel
 	
 	
-	// TODO: This is bugging out when the delay between pause and unpause is kind of less than 5 seconds.
+	// TODO: This is bugging out when the delay between pause and unpause is kind of less than 2 seconds.
 	var isGamePaused: Bool = false{
 		didSet(isGamePausedNew){
 			if self.isGamePaused{
-				self.view?.isPaused = true
 				SKTAudio.sharedInstance().pauseBackgroundMusic()
+				self.view?.isPaused = true
 			}else{
 				self.view?.isPaused = false
 				SKTAudio.sharedInstance().backgroundMusicPlayer?.play()
@@ -198,6 +198,7 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		if newDoor.contains(newPlayer.position){
 			if !newDoor.doorReached{
 				self.won = true
+				GameControl.gameControl.curScore += GameControl.gameControl.timer * GameControl.gameControl.curLevel
 				GameControl.gameControl.gameViewController?.loadNextLevel()
 			}
 			// MARK: Door Reached.
@@ -250,7 +251,7 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 			if !self.won && GameControl.gameControl.timer > 0{
 				GameControl.gameControl.timer -= 1
 				
-				self.scoreNumberLabel.text = "\(GameControl.gameControl.timer)"
+				self.scoreNumberLabel.text = "\(GameControl.gameControl.curScore)"
 				self.highScoreNumberLabel.text = "\(GameControl.gameControl.highScore)"
 				self.timerNumberLabel.text = "\(GameControl.gameControl.timer)"
 			}
@@ -266,6 +267,7 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		
 		self.timerNumberLabel.text = "\(GameControl.gameControl.timer)"
 		self.scoreNumberLabel.text = "\(GameControl.gameControl.curScore)"
+		self.highScoreNumberLabel.text = "\(GameControl.gameControl.highScore)"
 		
 	}
 	

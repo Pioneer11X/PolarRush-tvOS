@@ -34,18 +34,33 @@ class GameControl{
 	
 	// MARK: GameData
 	
-	let initTimer = 20
+	let initTimer = 60
 	let initScore = 0
 	
 	var timer = 20
-	var curScore = 0
+	var curScore = 0{
+		didSet(blah){
+			if curScore > self.highScore{
+				self.highScore = curScore
+			}
+		}
+	}
 	
-	var highScore = 100
+	var highScoreKey = "highScoreKey"
+	
+	var highScore: Int{
+		didSet{
+			let defaults = UserDefaults.standard;
+			defaults.set(highScore, forKey: highScoreKey)
+		}
+	}
 	
 	var curLevel = 1
 	var maxLevel = 2
 	
 	private init(){
+		let defaults = UserDefaults.standard;
+		self.highScore = ( defaults.integer(forKey: highScoreKey) )
 	}
 	
 	static var gameControl = GameControl()
