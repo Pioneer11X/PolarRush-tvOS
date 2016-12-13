@@ -85,10 +85,42 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	func updateCamera(){
 		
 		if  ( modulus(value: ((self.camera?.position)! - self.newPlayer.position).x ) > self.frame.size.width/2 ){
-//			print("Move it nwo");
 			// TODO: Move Camera Here.
+			
+			// if the player crosses the width of the screen, Move it towards him.
+			moveCamera(targetPos: getTargetPos())
+			
 		}
 		
+	}
+	
+	func getTargetPos() -> CGPoint{
+		
+		let leftWall = self.childNode(withName: "leftWall") as! SKSpriteNode
+		let rightWall = self.childNode(withName: "rightWall") as! SKSpriteNode
+		
+		let leftWallPos = leftWall.position.x + leftWall.size.width/2
+		let rightWallPos = rightWall.position.x - rightWall.size.width/2
+
+		let camOffset = (self.view?.frame.size.width)!/2
+		
+		let min = leftWallPos + camOffset
+		let max = rightWallPos - camOffset
+		
+		if newPlayer.position.x < min {
+			// TODO: Check for higher up levels. Feels like this isn't modular.
+//			return CGPoint(x: min + self.view!.frame.width/2, y: 0)
+			return CGPoint.zero
+		}else if newPlayer.position.x > max {
+			return CGPoint(x: max , y: 0)
+		}else{
+			return CGPoint(x: newPlayer.position.x, y: 0)
+		}
+		
+	}
+	
+	func moveCamera(targetPos: CGPoint){
+		self.camera?.run(SKAction.move(to: targetPos, duration: 2))
 	}
 	
 	func touchMoved(toPoint pos : CGPoint) {
