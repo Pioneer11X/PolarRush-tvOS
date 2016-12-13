@@ -20,6 +20,7 @@ class GameViewController: UIViewController {
 		loadMenuScene()
 //        loadLevel1()
 //		loadLevel2()
+//		loadCreditsScene()
 		
     }
 
@@ -100,5 +101,15 @@ class GameViewController: UIViewController {
 			}
 		}
 		GameControl.gameControl.curLevel = i
+	}
+	
+	func loadCreditsScene(){
+		if let view = self.view as! SKView? {
+			if let scene = SKScene(fileNamed: "CreditScene") {
+				scene.scaleMode = .aspectFill
+				let transition = SKTransition.fade(withDuration: 0.5);
+				view.presentScene(scene, transition: transition)
+			}
+		}
 	}
 }

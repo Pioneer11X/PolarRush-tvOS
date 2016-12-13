@@ -29,7 +29,8 @@ class GameControl{
 	let menuInitialScale:CGFloat = 1
 	let menuHighlightedScale:CGFloat = 1.2
 	let menuMovementTime: Double = 0.5
-	let menuMovementDistance: CGVector = CGVector(dx: 150, dy: 0)
+//	let menuMovementDistance: CGVector = CGVector(dx: 150, dy: 0)
+	let menuMovementDistance: CGFloat = 150
 	
 	// MARK: GameData
 	

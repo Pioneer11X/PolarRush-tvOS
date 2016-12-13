@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A019263B1DFD39A900D2E691 /* Door.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019263A1DFD39A900D2E691 /* Door.swift */; };
-		A03120B11DFFDB3D00D0D207 /* CreditsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A03120B01DFFDB3D00D0D207 /* CreditsScene.sks */; };
+		A03120B11DFFDB3D00D0D207 /* CreditScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A03120B01DFFDB3D00D0D207 /* CreditScene.sks */; };
+		A03120B31DFFDF5C00D0D207 /* CreditScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03120B21DFFDF5C00D0D207 /* CreditScene.swift */; };
 		A078B21A1DFB545C00E2BA06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078B2191DFB545C00E2BA06 /* AppDelegate.swift */; };
 		A078B21C1DFB545C00E2BA06 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A078B21B1DFB545C00E2BA06 /* GameScene.sks */; };
 		A078B2201DFB545C00E2BA06 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A078B21F1DFB545C00E2BA06 /* Game.xcassets */; };
@@ -51,7 +52,8 @@
 
 /* Begin PBXFileReference section */
 		A019263A1DFD39A900D2E691 /* Door.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Door.swift; sourceTree = "<group>"; };
-		A03120B01DFFDB3D00D0D207 /* CreditsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CreditsScene.sks; sourceTree = "<group>"; };
+		A03120B01DFFDB3D00D0D207 /* CreditScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CreditScene.sks; sourceTree = "<group>"; };
+		A03120B21DFFDF5C00D0D207 /* CreditScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditScene.swift; sourceTree = "<group>"; };
 		A078B2161DFB545C00E2BA06 /* PolarRush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolarRush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A078B2191DFB545C00E2BA06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A078B21B1DFB545C00E2BA06 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -211,7 +213,8 @@
 		A0A548E31DFFAD0A00A57C02 /* Credits Scene */ = {
 			isa = PBXGroup;
 			children = (
-				A03120B01DFFDB3D00D0D207 /* CreditsScene.sks */,
+				A03120B01DFFDB3D00D0D207 /* CreditScene.sks */,
+				A03120B21DFFDF5C00D0D207 /* CreditScene.swift */,
 			);
 			name = "Credits Scene";
 			sourceTree = "<group>";
@@ -304,7 +307,7 @@
 				A078B21C1DFB545C00E2BA06 /* GameScene.sks in Resources */,
 				A078B2411DFB550000E2BA06 /* MenuScene.sks in Resources */,
 				A0A548E21DFF859900A57C02 /* Jump-SoundBible.mp3 in Resources */,
-				A03120B11DFFDB3D00D0D207 /* CreditsScene.sks in Resources */,
+				A03120B11DFFDB3D00D0D207 /* CreditScene.sks in Resources */,
 				A0F609F71DFFD0D600CD00BB /* MerryChristmasFlake.ttf in Resources */,
 				A078B2561DFC81AF00E2BA06 /* Level1.sks in Resources */,
 				A0A548E01DFF859300A57C02 /* jingle-bells.mp3 in Resources */,
@@ -337,6 +340,7 @@
 				A078B2401DFB550000E2BA06 /* MenuScene.swift in Sources */,
 				A078B24D1DFB73D100E2BA06 /* GiftBox.swift in Sources */,
 				A078B24A1DFB62CA00E2BA06 /* Utils.swift in Sources */,
+				A03120B31DFFDF5C00D0D207 /* CreditScene.swift in Sources */,
 				A078B2241DFB545C00E2BA06 /* GameViewController.swift in Sources */,
 				A0A548D81DFF4F1700A57C02 /* PauseOverLaySingleton.swift in Sources */,
 				A078B2451DFB556300E2BA06 /* GameControl.swift in Sources */,

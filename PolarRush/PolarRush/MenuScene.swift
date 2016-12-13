@@ -22,6 +22,10 @@ class MenuScene: SKScene{
 	var cNIP: CGPoint?
 	var oNIP: CGPoint?
 	
+	var nGFP: CGPoint?
+	var cNFP: CGPoint?
+	var oNFP: CGPoint?
+	
 	var selectedOption: Int = 0
 	
 	var canSelect: Bool = true{
@@ -88,6 +92,10 @@ class MenuScene: SKScene{
 		cNIP = creditsNode?.position
 		oNIP = optionsNode?.position
 		
+		nGFP = CGPoint(x: (nGNIP?.x)! + GameControl.gameControl.menuMovementDistance, y: (nGNIP?.y)!)
+		cNFP = CGPoint(x: (cNIP?.x)! + GameControl.gameControl.menuMovementDistance, y: (cNIP?.y)!)
+		oNFP = CGPoint(x: (oNIP?.x)! + GameControl.gameControl.menuMovementDistance, y: (oNIP?.y)!)
+		
 //		newGameNode?.position = CGPoint(x: 0, y: (self.view?.frame.size.height)!/4);
 //		optionsNode?.position = CGPoint(x: 0, y: 0);
 //		creditsNode?.position = CGPoint(x: 0, y: -1 * (self.view?.frame.size.height)!/4);
@@ -99,23 +107,29 @@ class MenuScene: SKScene{
 		switch selectedOption {
 			
 		case 0:
-			resetLabels()
-			newGameNode?.run(SKAction.move(by: GameControl.gameControl.menuMovementDistance, duration: GameControl.gameControl.menuMovementTime))
+			resetLabels(nope: 0)
+			newGameNode?.run(SKAction.move(to: nGFP!, duration: GameControl.gameControl.menuMovementTime))
 		case 1:
-			resetLabels()
-			optionsNode?.run(SKAction.move(by: GameControl.gameControl.menuMovementDistance, duration: GameControl.gameControl.menuMovementTime))
+			resetLabels(nope: 1)
+			optionsNode?.run(SKAction.move(to: oNFP!, duration: GameControl.gameControl.menuMovementTime))
 		case 2:
-			resetLabels()
-			creditsNode?.run(SKAction.move(by: GameControl.gameControl.menuMovementDistance, duration: GameControl.gameControl.menuMovementTime))
+			resetLabels(nope: 2)
+			creditsNode?.run(SKAction.move(to: cNFP!, duration: GameControl.gameControl.menuMovementTime))
 		default:
-			resetLabels()
+			resetLabels(nope: 3)
 		}
 	}
 	
-	func resetLabels(){
-		newGameNode?.run(SKAction.move(to: nGNIP!, duration: GameControl.gameControl.menuMovementTime))
-		optionsNode?.run(SKAction.move(to: oNIP!, duration: GameControl.gameControl.menuMovementTime))
-		creditsNode?.run(SKAction.move(to: cNIP!, duration: GameControl.gameControl.menuMovementTime))
+	func resetLabels(nope: Int){
+		if !(nope == 0){
+			newGameNode?.run(SKAction.move(to: nGNIP!, duration: GameControl.gameControl.menuMovementTime))
+		}
+		if !(nope == 1){
+			optionsNode?.run(SKAction.move(to: oNIP!, duration: GameControl.gameControl.menuMovementTime))
+		}
+		if !(nope == 2){
+			creditsNode?.run(SKAction.move(to: cNIP!, duration: GameControl.gameControl.menuMovementTime))
+		}
 	}
 	
 	func remoteTapped(){
@@ -130,8 +144,8 @@ class MenuScene: SKScene{
 			GameControl.gameControl.gameViewController?.loadLevel1()
 			print("Options Selected")
 		case 2:
-			// TODO: Show Credits scene here.
-			print("Credits Selected")
+			// MARK: Show Credits scene here.
+			GameControl.gameControl.gameViewController?.loadCreditsScene()
 		default:
 			print("No Kappa")
 		}
