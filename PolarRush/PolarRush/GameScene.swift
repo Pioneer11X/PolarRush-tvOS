@@ -16,6 +16,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	
 	private var newPlayer = PlayerNode()
 	private var newbox = GiftBox()
+    
+    // MARK: Fixed update loop.
+    private var lastTime: TimeInterval?
+    private var deltaTime: TimeInterval = 1 // Sample delta time of 1 second.
 	
 	private var isGamePaused: Bool = false{
 		didSet(isGamePausedNew){
@@ -32,6 +36,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	private var finalLocation: CGPoint = CGPoint.zero
 	private var originalLocation: CGPoint = CGPoint.zero
 	
+    private var rightPressed: Bool = false
+    private var leftPressed: Bool = false
     
     override func didMove(to view: SKView) {
 		
@@ -77,6 +83,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             n.strokeColor = SKColor.green
             self.addChild(n)
         }
+        if pos.x > 10 {
+            rightPressed = true
+        }else if pos.x < -10 {
+            leftPressed = true
+        }
     }
     
     func touchMoved(toPoint pos : CGPoint) {
@@ -85,19 +96,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             n.strokeColor = SKColor.blue
             self.addChild(n)
         }
-		let diff: CGPoint = pos - initialLocation
-//		print(diff)
-		if diff.x < -10 {
-//			newPlayer.moveLeft()
-			newPlayer.moveLeftImpulse()
-		}else if diff.x > 10{
-			newPlayer.moveRightImpulse()
-		}
-		
-		if diff.y > 10{
-			newPlayer.jump()
-		}
-		initialLocation = pos
+//		let diff: CGPoint = pos - initialLocation
+//		if diff.x < -10 {
+//            leftPressed = true
+//			newPlayer.moveLeftImpulse()
+//		}else if diff.x > 10{
+//            rightPressed = true
+//			newPlayer.moveRightImpulse()
+//		}
+//		
+//		if diff.y > 10{
+//			newPlayer.jump()
+//		}
+//		initialLocation = pos
+        
+        if pos.x > 10 {
+            rightPressed = true
+        }else{
+            rightPressed = false
+        }
+            
+        if pos.x < -10 {
+            leftPressed = true
+        }else{
+            leftPressed = false
+        }
+        
     }
     
     func touchUp(atPoint pos : CGPoint) {
@@ -107,12 +131,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(n)
         }
 		initialLocation = CGPoint.zero
+        rightPressed = false
+        leftPressed = false
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
+//        if let label = self.label {
+//            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+//        }
         
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
@@ -134,22 +160,56 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Called before each frame is rendered
 //		print(SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.left.isPressed)
 		
+        
+        // Commenting out to test the fixed update loop.
+        
 		if SKTGameController.sharedInstance.gameControllerConnected{
 			
 			if SKTGameController.sharedInstance.gameControllerType == controllerType.extended{
 			
 				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.left.isPressed)!{
-					newPlayer.moveLeftImpulse()
-				}
+//					newPlayer.moveLeftImpulse()
+                    leftPressed = true
+                }else{
+                    leftPressed = false
+                }
 				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.right.isPressed)!{
-					newPlayer.moveRightImpulse()
-				}
+//					newPlayer.moveRightImpulse()
+                    rightPressed = true
+                }else{
+                    rightPressed = false
+                }
 				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.buttonA.isPressed)!{
 					newPlayer.jump()
 				}
 			}
 		}
-		
+ 
+        
+        if lastTime != nil{
+            lastTime = fixedUpdate(currentTime: currentTime, deltaTime: GameControl.gameControl.movementTime, lastTime: lastTime!)
+        }else{
+            lastTime = currentTime
+        }
+    }
+    
+    // MARK: Fixed Update function.
+    func fixedUpdate( currentTime: TimeInterval, deltaTime: TimeInterval, lastTime: TimeInterval) -> TimeInterval{
+        // This function needs to be called at a fixed rate, no matter which device it runs on, how frame rate you get.
+        if currentTime - lastTime > deltaTime {
+            // Do stuff.
+            if leftPressed{
+                newPlayer.moveLeft()
+            }
+            
+            if rightPressed{
+                newPlayer.moveRight()
+            }
+            
+            return currentTime
+        }else{
+            return lastTime
+        }
     }
 	
 	func check(_ recognizer: UITapGestureRecognizer){

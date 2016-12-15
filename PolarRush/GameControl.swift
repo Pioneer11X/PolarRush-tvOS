@@ -14,8 +14,8 @@ class GameControl{
 	var gameViewController: GameViewController?
 	
 	let blockSize = CGSize(width: 100, height: 100)
-	let movementSpeed: CGFloat = 500
-	var movementTime = 0.75
+	let movementSpeed: CGFloat = 10 //2
+	var movementTime = 0.005
 	let movementTimeExt = 0.25
 	let movementTimeInt = 0.75
 	let movementImpulse: CGFloat = 20

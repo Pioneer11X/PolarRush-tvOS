@@ -32,12 +32,14 @@ class PlayerNode: SKSpriteNode{
 	func moveLeft(){
 		if canMove{
 			canMove = false
-			self.run(SKAction.sequence(
-				[
-					SKAction.moveBy(x: -1 * GameControl.gameControl.movementSpeed, y: 0, duration: GameControl.gameControl.movementTime),
-					SKAction.run( { self.canMove = true } )
-				]
-			))
+//			self.run(SKAction.sequence(
+//				[
+//					SKAction.moveBy(x: -1 * GameControl.gameControl.movementSpeed, y: 0, duration: GameControl.gameControl.movementTime),
+//					SKAction.run( { self.canMove = true } )
+//				]
+//			))
+            self.position = self.position - CGPoint(x: GameControl.gameControl.movementSpeed, y: 0)
+            canMove = true
 		}
 	}
 	
@@ -89,12 +91,14 @@ class PlayerNode: SKSpriteNode{
 	func moveRight(){
 		if canMove{
 			canMove = false
-			self.run(SKAction.sequence(
-				[
-					SKAction.moveBy(x: GameControl.gameControl.movementSpeed, y: 0, duration: GameControl.gameControl.movementTime),
-					SKAction.run( { self.canMove = true } )
-				]
-			))
+//			self.run(SKAction.sequence(
+//				[
+//					SKAction.moveBy(x: GameControl.gameControl.movementSpeed, y: 0, duration: GameControl.gameControl.movementTime),
+//					SKAction.run( { self.canMove = true } )
+//				]
+//			))
+            self.position = self.position + CGPoint(x: GameControl.gameControl.movementSpeed, y: 0)
+            canMove = true
 		}
 	}
 	
