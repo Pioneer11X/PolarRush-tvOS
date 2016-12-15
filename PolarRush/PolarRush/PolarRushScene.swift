@@ -14,6 +14,9 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	private var newPlayer = PlayerNode()
 	private var newDoor = Door()
 	private var won: Bool = false
+    
+    // MARK: Fixed update loop.
+    private var lastTime: TimeInterval?
 	
 	let scoreLabel: SKLabelNode = HUD.hud.scoreLabel
 	let highscoreLabel: SKLabelNode = HUD.hud.highScoreLabel
@@ -41,6 +44,9 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	private var initialLocation: CGPoint = CGPoint.zero
 	private var finalLocation: CGPoint = CGPoint.zero
 	private var originalLocation: CGPoint = CGPoint.zero
+    
+    private var rightPressed: Bool = false
+    private var leftPressed: Bool = false
 	
 	override func didMove(to view: SKView) {
 		
@@ -75,6 +81,13 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		if noMoreBoxes(){
 			unlockDoor()
 		}
+        
+        if lastTime != nil{
+            lastTime = fixedUpdate(currentTime: currentTime, deltaTime: GameControl.gameControl.movementTime, lastTime: lastTime!)
+        }else{
+            lastTime = currentTime
+            print(currentTime)
+        }
 		
 		updateHUD()
 		controllerSupport()
@@ -90,7 +103,11 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	}
 	
 	func touchDown(atPoint pos : CGPoint) {
-		
+        if pos.x > 10 {
+            rightPressed = true
+        }else if pos.x < -10 {
+            leftPressed = true
+        }
 	}
 	
 	func updateCamera(){
@@ -135,19 +152,18 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	}
 	
 	func touchMoved(toPoint pos : CGPoint) {
-		GameControl.gameControl.movementTime = GameControl.gameControl.movementTimeInt
-		let diff: CGPoint = pos - initialLocation
-
-		if diff.x < -10 {
-			newPlayer.moveLeftImpulse()
-		}else if diff.x > 10{
-			newPlayer.moveRightImpulse()
-		}
-		
-		if diff.y > 10{
-			newPlayer.jump()
-		}
-		initialLocation = pos
+		//GameControl.gameControl.movementTime = GameControl.gameControl.movementTimeInt
+        if pos.x > 10 {
+            rightPressed = true
+        }else{
+            rightPressed = false
+        }
+        
+        if pos.x < -10 {
+            leftPressed = true
+        }else{
+            leftPressed = false
+        }
 	}
 	
 	func touchUp(atPoint pos : CGPoint) {
@@ -176,6 +192,7 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		
 		if check == ( PhysicsCategory.playerCategory | PhysicsCategory.platformCategory ){
 			newPlayer.canJump = true
+            newPlayer.canMove = true
 		}else if check == PhysicsCategory.giftBoxCategory | PhysicsCategory.playerCategory{
 			// TODO: Remove the giftbox here.
 			if contact.bodyA.categoryBitMask == PhysicsCategory.giftBoxCategory{
@@ -229,15 +246,22 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 			if SKTGameController.sharedInstance.gameControllerType == controllerType.extended{
 				
 				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.left.isPressed)!{
-					GameControl.gameControl.movementTime = GameControl.gameControl.movementTimeExt
-					newPlayer.moveLeftImpulse()
-				}
+                    if newPlayer.canMove{
+                        leftPressed = true
+                    }
+                }else{
+                    leftPressed = false
+                }
+                
 				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.leftThumbstick.right.isPressed)!{
-					GameControl.gameControl.movementTime = GameControl.gameControl.movementTimeExt
-					newPlayer.moveRightImpulse()
-				}
+                    if newPlayer.canMove{
+                        rightPressed = true
+                    }
+                }else{
+                    rightPressed = false
+                }
+                
 				if (SKTGameController.sharedInstance.gameController.extendedGamepad?.buttonA.isPressed)!{
-					GameControl.gameControl.movementTime = GameControl.gameControl.movementTimeExt
 					newPlayer.jump()
 				}
 				
@@ -373,5 +397,24 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 				]))
 		}
 	}
+    
+    // MARK: Fixed Update function.
+    func fixedUpdate( currentTime: TimeInterval, deltaTime: TimeInterval, lastTime: TimeInterval) -> TimeInterval{
+        // This function needs to be called at a fixed rate, no matter which device it runs on, how frame rate you get.
+        if currentTime - lastTime > deltaTime {
+            // Do stuff.
+            if leftPressed{
+                newPlayer.moveLeft()
+            }
+            
+            if rightPressed{
+                newPlayer.moveRight()
+            }
+            
+            return currentTime
+        }else{
+            return lastTime
+        }
+    }
 	
 }

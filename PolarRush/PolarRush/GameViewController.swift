@@ -17,9 +17,9 @@ class GameViewController: UIViewController {
 		
 		GameControl.gameControl.gameViewController = self;
 		SKTAudio.sharedInstance().playBackgroundMusic(filename: "jingle-bells.mp3")
-        loadGameScene()
+//        loadGameScene()
 //		loadMenuScene()
-//        loadLevel1()
+        loadLevel1()
 //		loadLevel2()
 //		loadCreditsScene()
 		
@@ -90,7 +90,7 @@ class GameViewController: UIViewController {
 	
 	func loadNextLevel(){
 		var i = GameControl.gameControl.curLevel
-		i = i + 1;
+        i = ( i + 1 ) > 0 ? i + 1 : 1;
 		if i > GameControl.gameControl.maxLevel{
 			i = GameControl.gameControl.maxLevel
 		}

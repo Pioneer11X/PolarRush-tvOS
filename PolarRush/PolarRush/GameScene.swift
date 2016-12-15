@@ -96,19 +96,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             n.strokeColor = SKColor.blue
             self.addChild(n)
         }
-//		let diff: CGPoint = pos - initialLocation
-//		if diff.x < -10 {
-//            leftPressed = true
-//			newPlayer.moveLeftImpulse()
-//		}else if diff.x > 10{
-//            rightPressed = true
-//			newPlayer.moveRightImpulse()
-//		}
-//		
-//		if diff.y > 10{
-//			newPlayer.jump()
-//		}
-//		initialLocation = pos
         
         if pos.x > 10 {
             rightPressed = true

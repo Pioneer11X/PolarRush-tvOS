@@ -30,17 +30,13 @@ class PlayerNode: SKSpriteNode{
 	}
 	
 	func moveLeft(){
-		if canMove{
-			canMove = false
-//			self.run(SKAction.sequence(
-//				[
-//					SKAction.moveBy(x: -1 * GameControl.gameControl.movementSpeed, y: 0, duration: GameControl.gameControl.movementTime),
-//					SKAction.run( { self.canMove = true } )
-//				]
-//			))
+//		if canMove{
+//			canMove = false
+            let newTexture = SKTexture(imageNamed: "myElfLeft")
+            self.run(SKAction.setTexture(newTexture))
             self.position = self.position - CGPoint(x: GameControl.gameControl.movementSpeed, y: 0)
-            canMove = true
-		}
+//            canMove = true
+//		}
 	}
 	
 	func moveLeftImpulse(){
@@ -89,22 +85,19 @@ class PlayerNode: SKSpriteNode{
 	}
 	
 	func moveRight(){
-		if canMove{
-			canMove = false
-//			self.run(SKAction.sequence(
-//				[
-//					SKAction.moveBy(x: GameControl.gameControl.movementSpeed, y: 0, duration: GameControl.gameControl.movementTime),
-//					SKAction.run( { self.canMove = true } )
-//				]
-//			))
+//		if canMove{
+//			canMove = false
+            let newTexture = SKTexture(imageNamed: "myElf")
+            self.run(SKAction.setTexture(newTexture))
             self.position = self.position + CGPoint(x: GameControl.gameControl.movementSpeed, y: 0)
-            canMove = true
-		}
+//            canMove = true
+//		}
 	}
 	
 	func jump(){
 		if canJump{
 			canJump = false
+            canMove = false
 			self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 50))
 			SKTAudio.sharedInstance().playSoundEffect(filename: "Jump-SoundBible.mp3")
 		}
