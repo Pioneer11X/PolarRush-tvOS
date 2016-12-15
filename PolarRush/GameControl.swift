@@ -20,6 +20,9 @@ class GameControl{
 	let movementTimeInt = 0.75
 	let movementImpulse: CGFloat = 20
 	let playerMass : CGFloat = 0.05
+    
+    // MARK: Collected GiftBoxPoints
+    var collectedGiftBoxesPos: [CGPoint] = []
 	
 	// MARK: Display Constant
 	
@@ -34,6 +37,11 @@ class GameControl{
 //	let menuMovementDistance: CGVector = CGVector(dx: 150, dy: 0)
 	let menuMovementDistance: CGFloat = 150
 	
+    
+    // MARK: Enemy Movements.
+    let enemyMoveDistance = 100
+    let enemyMoveTime: Double = 1
+    
 	// MARK: GameData
 	
 	let initTimer = 60
@@ -58,7 +66,7 @@ class GameControl{
 	}
 	
 	var curLevel = 0
-	var maxLevel = 3
+	var maxLevel = 4
 	
 	private init(){
 		let defaults = UserDefaults.standard;
@@ -67,8 +75,9 @@ class GameControl{
 	
 	static var gameControl = GameControl()
 	
-	func resetLevelTimer(){
+	func resetLevel(){
 		self.timer = self.initTimer
+        self.collectedGiftBoxesPos = []
 	}
 	
 	// MARK: Options
@@ -82,6 +91,7 @@ struct PhysicsCategory{
 	static let platformCategory = UInt32(2)
 	static let giftBoxCategory = UInt32(4)
 	static let doorCategory = UInt32(8)
+    static let elfCategory = UInt32(16)
 	
 }
 

@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Level3: PolarRushScene{
+class Level4: PolarRushScene{
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -19,6 +19,11 @@ class Level3: PolarRushScene{
             CGPoint(x: rightWallPos - 100, y: -1 * self.frame.size.height/2 + 100)
         ]
         self.addGiftBoxPos(arrayOfPos: test)
+        
+        let enemies = [
+            CGPoint(x: 250, y: 250)
+        ]
+        self.addEnemies(arrayOfPos: enemies)
     }
 
 	
@@ -39,7 +44,7 @@ class Level3: PolarRushScene{
 	}
 }
 
-extension Level3{
+extension Level4{
 	
 	@objc func printIns( text: String ){
 		

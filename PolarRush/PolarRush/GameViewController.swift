@@ -18,16 +18,24 @@ class GameViewController: UIViewController {
 		GameControl.gameControl.gameViewController = self;
 		SKTAudio.sharedInstance().playBackgroundMusic(filename: "jingle-bells.mp3")
 //        loadGameScene()
-//		loadMenuScene()
-        loadLevel1()
-//		loadLevel2()
+		loadMenuScene()
 //		loadCreditsScene()
+//        loadLevel(i: 4)
 		
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
+    }
+    
+    func loadLevel(i: Int){
+        if let view = self.view as! SKView? {
+            if let scene = SKScene(fileNamed: "Level\(i)") {
+                scene.scaleMode = .aspectFill
+                view.presentScene(scene)
+            }
+        }
     }
 	
 	func loadMenuScene(){

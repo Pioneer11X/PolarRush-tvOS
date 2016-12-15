@@ -43,6 +43,9 @@
 		A0A548E21DFF859900A57C02 /* Jump-SoundBible.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A0A548E11DFF859900A57C02 /* Jump-SoundBible.mp3 */; };
 		A0F609F71DFFD0D600CD00BB /* MerryChristmasFlake.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0F609F51DFFD0CF00CD00BB /* MerryChristmasFlake.ttf */; };
 		A0F609F81DFFD0D600CD00BB /* MerryChristmasStar.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0F609F61DFFD0CF00CD00BB /* MerryChristmasStar.ttf */; };
+		A0F65CB91E02636D00CEDE8A /* Level4.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0F65CB81E02636D00CEDE8A /* Level4.sks */; };
+		A0F65CBB1E02644E00CEDE8A /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F65CBA1E02644E00CEDE8A /* Enemy.swift */; };
+		A0F65CBD1E026C0B00CEDE8A /* Level4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F65CBC1E026C0B00CEDE8A /* Level4.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +99,9 @@
 		A0A548E11DFF859900A57C02 /* Jump-SoundBible.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jump-SoundBible.mp3"; sourceTree = "<group>"; };
 		A0F609F51DFFD0CF00CD00BB /* MerryChristmasFlake.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MerryChristmasFlake.ttf; sourceTree = "<group>"; };
 		A0F609F61DFFD0CF00CD00BB /* MerryChristmasStar.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MerryChristmasStar.ttf; sourceTree = "<group>"; };
+		A0F65CB81E02636D00CEDE8A /* Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level4.sks; sourceTree = "<group>"; };
+		A0F65CBA1E02644E00CEDE8A /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		A0F65CBC1E026C0B00CEDE8A /* Level4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level4.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +165,7 @@
 		A078B2181DFB545C00E2BA06 /* PolarRush */ = {
 			isa = PBXGroup;
 			children = (
+				A0F65CB71E02634D00CEDE8A /* Level4 */,
 				A03120BE1E0020F000D0D207 /* InstructionsScene */,
 				A03120B81DFFFEF000D0D207 /* Level3 */,
 				A0A548E31DFFAD0A00A57C02 /* Credits Scene */,
@@ -219,6 +226,7 @@
 				A078B2471DFB56A400E2BA06 /* PlayerNode.swift */,
 				A078B24C1DFB73D100E2BA06 /* GiftBox.swift */,
 				A019263A1DFD39A900D2E691 /* Door.swift */,
+				A0F65CBA1E02644E00CEDE8A /* Enemy.swift */,
 			);
 			name = NodeClasses;
 			sourceTree = "<group>";
@@ -248,6 +256,15 @@
 				A03120B21DFFDF5C00D0D207 /* CreditScene.swift */,
 			);
 			name = "Credits Scene";
+			sourceTree = "<group>";
+		};
+		A0F65CB71E02634D00CEDE8A /* Level4 */ = {
+			isa = PBXGroup;
+			children = (
+				A0F65CB81E02636D00CEDE8A /* Level4.sks */,
+				A0F65CBC1E026C0B00CEDE8A /* Level4.swift */,
+			);
+			name = Level4;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +357,7 @@
 				A03120C21E00211500D0D207 /* InsScene.sks in Resources */,
 				A0A548E21DFF859900A57C02 /* Jump-SoundBible.mp3 in Resources */,
 				A03120B11DFFDB3D00D0D207 /* CreditScene.sks in Resources */,
+				A0F65CB91E02636D00CEDE8A /* Level4.sks in Resources */,
 				A03120BA1DFFFEFD00D0D207 /* Level3.sks in Resources */,
 				A0F609F71DFFD0D600CD00BB /* MerryChristmasFlake.ttf in Resources */,
 				A078B2561DFC81AF00E2BA06 /* Level1.sks in Resources */,
@@ -381,6 +399,8 @@
 				A078B2451DFB556300E2BA06 /* GameControl.swift in Sources */,
 				A019263B1DFD39A900D2E691 /* Door.swift in Sources */,
 				A078B24F1DFBADE500E2BA06 /* SKTGameController.swift in Sources */,
+				A0F65CBB1E02644E00CEDE8A /* Enemy.swift in Sources */,
+				A0F65CBD1E026C0B00CEDE8A /* Level4.swift in Sources */,
 				A078B25A1DFCD46400E2BA06 /* PolarRushScene.swift in Sources */,
 				A078B21A1DFB545C00E2BA06 /* AppDelegate.swift in Sources */,
 				A0A548DA1DFF618800A57C02 /* HUD.swift in Sources */,

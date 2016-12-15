@@ -14,6 +14,8 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 	private var newPlayer = PlayerNode()
 	private var newDoor = Door()
 	private var won: Bool = false
+    private var giftBoxPoints: [CGPoint] = []
+    private var enemyPoints: [CGPoint] = []
     
     // MARK: Fixed update loop.
     private var lastTime: TimeInterval?
@@ -62,13 +64,48 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
 		newDoor.zPosition = 5
 		
 		
-		GameControl.gameControl.resetLevelTimer()
+		GameControl.gameControl.resetLevel()
 		
+        setupGiftBoxes(giftBoxPoints: self.giftBoxPoints)
+        setupEnemies(enemyPoints: enemyPoints)
 		addGestureRecs()
 		setupHUD()
 		setupLevelTimer()
 		
 	}
+    
+    func setupGiftBoxes(giftBoxPoints: [CGPoint]){
+        
+        for pos in self.giftBoxPoints{
+            
+            let newBox = GiftBox()
+            newBox.position = pos
+            self.addChild(newBox)
+            
+        }
+        
+    }
+    
+    func setupEnemies(enemyPoints: [CGPoint]){
+        for pos in self.enemyPoints{
+            let enemyNode = Enemy()
+            enemyNode.position = pos
+            self.addChild(enemyNode)
+            enemyNode.moveTheEnemy()
+        }
+    }
+    
+    public func addGiftBoxPos(arrayOfPos: [CGPoint]){
+        for ins in arrayOfPos{
+            self.giftBoxPoints.append(ins)
+        }
+    }
+    
+    public func addEnemies(arrayOfPos: [CGPoint]){
+        for ins in arrayOfPos{
+            self.enemyPoints.append(ins)
+        }
+    }
 	
 	func unlockDoor(){
 		// MARK: This needs to be called when all the giftboxes on the level are collected.
@@ -86,7 +123,6 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
             lastTime = fixedUpdate(currentTime: currentTime, deltaTime: GameControl.gameControl.movementTime, lastTime: lastTime!)
         }else{
             lastTime = currentTime
-            print(currentTime)
         }
 		
 		updateHUD()
@@ -164,10 +200,17 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
         }else{
             leftPressed = false
         }
+        
+        if pos.y > 10 {
+            newPlayer.jump()
+        }
+        
 	}
 	
 	func touchUp(atPoint pos : CGPoint) {
 		initialLocation = CGPoint.zero
+        leftPressed = false
+        rightPressed = false
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -195,13 +238,38 @@ class PolarRushScene: SKScene, SKPhysicsContactDelegate {
             newPlayer.canMove = true
 		}else if check == PhysicsCategory.giftBoxCategory | PhysicsCategory.playerCategory{
 			// TODO: Remove the giftbox here.
+            let bodyApos = (contact.bodyA.node?.position)
+            let bodyBpos =  (contact.bodyB.node?.position)
 			if contact.bodyA.categoryBitMask == PhysicsCategory.giftBoxCategory{
+                if bodyApos != nil{
+                    GameControl.gameControl.collectedGiftBoxesPos.append(bodyApos!)
+                }
 				contact.bodyA.node?.removeFromParent()
-			}else{
+            }else if contact.bodyB.categoryBitMask == PhysicsCategory.giftBoxCategory{
+                if bodyBpos != nil{
+                    GameControl.gameControl.collectedGiftBoxesPos.append(bodyBpos!)
+                }
 				contact.bodyB.node?.removeFromParent()
 			}
 			GameControl.gameControl.curScore += 10
-		}
+            
+        }else if check == PhysicsCategory.playerCategory | PhysicsCategory.elfCategory{
+            // MARK: We are removing the enemy here. Not sure if we want to do that for balance reasons.
+            if contact.bodyA.categoryBitMask == PhysicsCategory.elfCategory{
+                contact.bodyA.node?.removeFromParent()
+            }else if contact.bodyB.categoryBitMask == PhysicsCategory.elfCategory{
+                contact.bodyB.node?.removeFromParent()
+            }
+            
+            // Put back one of the giftBoxes everytime the player touches the enemy.
+            
+            if let firstGiftBox = GameControl.gameControl.collectedGiftBoxesPos.first{
+                let newBox = GiftBox()
+                newBox.position = firstGiftBox
+                self.addChild(newBox)
+            }
+            
+        }
 	}
 	
 	func playerJump(_ recognizer: UITapGestureRecognizer){
